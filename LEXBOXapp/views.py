@@ -9,9 +9,9 @@ def home(request):
 
 
 
-def gunoi(request):
+def cerere(request):
 
-    return render(request, 'Gunoi.html')
+    return render(request, 'Cerere.html')
 
 
 def parcare(request):

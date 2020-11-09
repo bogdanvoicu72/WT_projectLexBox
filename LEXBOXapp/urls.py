@@ -5,6 +5,6 @@ from LEXBOXapp import views
 
 urlpatterns = [
     path('', views.home),
-    path('Gunoi', views.gunoi),
+    path('Cerere', views.cerere),
     path('Parcare',views.parcare),
 ]
