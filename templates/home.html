@@ -4,41 +4,43 @@
   <title>LexBox</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      {% load static %}
+    <link rel="stylesheet" href="{% static 'lexbox/bootstrap/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'lexbox/bootstrap/style.css' %}" type="text/css">
 </head>
 <body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="" style="color: black;">LexBox</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-         Cerere Formulare
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="Cerere">Formular contestatie</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
-  
-<div class="container-fluid">
-  <h3>Bun venit la serviciile LexBox</h3>
-</div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">LexBox</a>
 
-<div id="section1" class = "container-fluid bg-succes" style="padding-top: 70px; padding-bottom: 70px;">
-<h1>Scopul?</h1>
-<br>
-<br>
-    <p style="padding-left: 50px;">TEXT de scop</p>
-</div>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Formular Cerere</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="Cerere">Formular</a>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <h1 class="display-3">LexBox</h1>
+    <p class="lead">Acest formular reprezintă metoda cea mai rapidă prin care ne puteţi trimite toate informaţiile şi documentele necesare formulării plângerii contravenţionale PENTRU FAPTE DIN DOMENIUL RUTIER SAU CELE PREVĂZUTE DE HOTĂRÂRI ALE CONSILIULUI LOCAL.
+       Pentru a putea fi trimis, trebuie să completaţi şi să bifaţi toate câmpurile.  </p>
+    <hr class="my-4">
+    <p>AV. Marcu Mihaela Luminita (conctact asistenta completare formular)</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Contact</a>
+    </p>
+  </div>
 
 </body>
 </html>
