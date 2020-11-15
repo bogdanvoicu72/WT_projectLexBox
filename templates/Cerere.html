@@ -75,20 +75,26 @@
                   </p>
            </div>
 
-      <form>
+      <form method="post" action="/Cerere">
+        {% csrf_token %}
         <div class="form-group">
-          <div class="alert alert-info">
-            <strong>Info!</strong> Vă rugăm să competaţi datele persoanei sancţionate prin procesul verbal de contravenţie
-          </div>
-            <label for ="Nume">Nume</label>
-            <input type ="text" class = "form-control" id = "NumeFamilie" aria-describedby="numeHelp" placeholder="Introduceti numele">
-            <label for = "Prenume">Prenume</label>
-            <input type ="text" class = "form-control" id = "Prenume" aria-describedby="prenumeHelp" placeholder="Introduceti prenumele">
-            <label for = "Telefon Mobil">Telefon Mobil</label>
-            <input type ="tel" class = "form-control" id = "nrTel" aria-describedby="nrTel" placeholder="Introduceti numarul de telefon">
-            <label for = "Email">Email</label>
-            <input type ="email" class = "form-control" id = "email" aria-describedby="emailHelp" placeholder="Introduceti email">
-            <label for = "Adresa Procedurala">Adresa Procedurala</label>
+            <div class="alert alert-info">
+                <strong>Info!</strong> Vă rugăm să competaţi datele persoanei sancţionate prin procesul verbal de
+                contravenţie
+            </div>
+            <label for="Nume">Nume</label>
+            <input type="text" class="form-control" id="NumeFamilie" name="nume" aria-describedby="numeHelp"
+                   placeholder="Introduceti numele">
+            <label for="Prenume">Prenume</label>
+            <input type="text" class="form-control" id="Prenume" name="prenume" aria-describedby="prenumeHelp"
+                   placeholder="Introduceti prenumele">
+            <label for="Telefon Mobil">Telefon Mobil</label>
+            <input type="tel" class="form-control" id="nrTel" name="telefon" aria-describedby="nrTel"
+                   placeholder="Introduceti numarul de telefon">
+            <label for="Email">Email</label>
+            <input type="email" class="form-control" id="email" name="e_mail" aria-describedby="emailHelp"
+                   placeholder="Introduceti email">
+            <label for="Adresa Procedurala">Adresa Procedurala</label>
             <input>
         </div>
       
@@ -463,6 +469,7 @@
               <label>PLATA</label>
             </div>
     </div>
+          <input type="submit" name="submit" value="Inregistreaza cererea">
       </form>
 </script>
 </body>
