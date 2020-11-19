@@ -361,6 +361,11 @@
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile01"
                 aria-describedby="inputGroupFileAddon01">
+                <form method = "post" enctype="multipart/form-data"> 
+                  {% csrf_token %} 
+                  {{ form.as_p }} 
+                  <button type="submit">Upload</button> # Save poze local
+              </form> 
             </div>
           </div>
           <br>
