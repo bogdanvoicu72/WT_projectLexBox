@@ -127,3 +127,6 @@ STATICFILES_DIRS = [
     #bootstrap
     os.path.join(BASE_DIR,'boot')
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media directory in the root directory 
+MEDIA_URL = '/media/'

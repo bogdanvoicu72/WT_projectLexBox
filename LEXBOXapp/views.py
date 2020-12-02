@@ -4,6 +4,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
+
 
 # Create your views here.
 
@@ -14,11 +16,19 @@ def home(request):
 
 
 def cerere(request):
-    if request.POST:
+    #if request.POST:
+    if request.method == "POST":
+        request_file = request.FILES['document'] if 'document' in request.FILES else None
+        if request_file:
+                fs = FileSystemStorage()
+                fs.save(request_file.name, request_file) 
+        
         context = {'data': request.POST}
         return render(request, 'success_request.html', context=context)
     else:
         return render(request, 'Cerere.html')
+   
+
 
 
 
