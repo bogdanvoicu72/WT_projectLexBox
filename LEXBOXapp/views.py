@@ -32,7 +32,7 @@ def cerere(request):
         doc.save("generated_doc.docx")
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
-        return render(request, 'Cerere.html')
+        return render(request, 'wizard.html')
    
 
 
