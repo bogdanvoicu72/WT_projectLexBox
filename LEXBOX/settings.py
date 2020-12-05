@@ -123,9 +123,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "home.html"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR, 'static'),
     #bootstrap
-    os.path.join(BASE_DIR,'boot')
+    os.path.join(BASE_DIR, 'static', 'home.html', 'boot'),
+
+    # Document template goes here
+    os.path.join(BASE_DIR, 'static', 'home.html', 'DocumentTemplate')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media directory in the root directory 
