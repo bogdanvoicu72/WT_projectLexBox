@@ -1,10 +1,11 @@
-from django.shortcuts import render
-import templates
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
+from docxtpl import DocxTemplate
+from django.contrib.staticfiles.storage import staticfiles_storage
+
+template_location = staticfiles_storage.path('Plangere.docx')
 
 
 # Create your views here.
@@ -14,6 +15,9 @@ def home(request):
     
     return render(request,'home.html')
 
+# Be sure to run `python3 manage.py collectstatic`
+# or whatever's the command on your machine
+# before running this.
 
 def cerere(request):
     #if request.POST:
@@ -22,9 +26,11 @@ def cerere(request):
         if request_file:
                 fs = FileSystemStorage()
                 fs.save(request_file.name, request_file) 
-        
-        context = {'data': request.POST}
-        return render(request, 'success_request.html', context=context)
+
+        doc = DocxTemplate(template_location)
+        doc.render(request.POST)
+        doc.save("generated_doc.docx")
+        return render(request, 'success_request.html', context={'data': request.POST})
     else:
         return render(request, 'Cerere.html')
    

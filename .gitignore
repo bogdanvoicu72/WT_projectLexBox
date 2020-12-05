@@ -114,3 +114,12 @@ media/
 # !**/migrations
 # !**/migrations/__init__.py
 ©
+
+# Custom Ignores
+
+# home.html - run `python3 manage.py collectstatic` to create this
+home.html
+
+# generated_doc.docx - will be generated upon save
+
+generated_doc.docx
