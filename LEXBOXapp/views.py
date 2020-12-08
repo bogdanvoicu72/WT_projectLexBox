@@ -2,6 +2,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
+from django.core.mail import send_mail
+from LEXBOX.settings import EMAIL_HOST_USER
 from docxtpl import DocxTemplate
 from django.contrib.staticfiles.storage import staticfiles_storage
 
@@ -30,9 +32,14 @@ def cerere(request):
         doc = DocxTemplate(template_location)
         doc.render(request.POST)
         doc.save("generated_doc.docx")
+        # Doamna avocat va primi un mail de notificare cand se va completa o noua cerere
+        subject = "Ati primit o cerere noua"
+        message = "O noua cerere a fost adougata in contul dumneavoastra!"
+        recepient = str("dodov1999@gmail.com")
+        send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
-        return render(request, 'Cerere.html')
+        return render(request, 'wizard.html')
    
 
 
@@ -55,7 +62,7 @@ def avo(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request,user)
-            redirect('login')
+            return redirect('login')
         else:
             form = UserCreationForm()
     return render(request,'avo.html', {'form': form})
