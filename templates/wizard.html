@@ -7,12 +7,22 @@
 		<title>
 			Metronic | Form Wizard 1
 		</title>
+
+		<style>
+		.show{
+			display: none;
+
+		}
+	</style>
+
 		<meta name="description" content="Form wizard examples">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!--begin::Web font -->
         <script src="https://kit.fontawesome.com/c10f21a92b.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 		<script>
                 WebFont.load({
                     google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
@@ -330,7 +340,7 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_da" checked="" value="2">
+																					<input type="radio" name="in_posesie_da"  value="1">
 																					Da
 																					<span></span>
 																				</label>
@@ -359,6 +369,233 @@
 																		<h3 class="m-form__heading-title">
 																			Informatii 3
 																		</h3>
+																		<div class="form-group m-form__group row">
+																			<label class="col-xl-3 col-lg-3 col-form-label">
+																				* Cum ati intrat in posesia procesului verba?
+																			</label>
+																			<div class="col-xl-9 col-lg-9">
+																				<div class="m-radio-inline">
+																					<label class="m-radio m-radio--solid m-radio--brand">
+																						<input type="radio" name="in_posesie_da"  value="1">
+																						Prin inmanarea la fata locului
+																						<span></span>
+																					</label>
+																					<label class="m-radio m-radio--solid m-radio--brand">
+																						<input type="radio" name="in_posesie_nu" value="2">
+																						Prin posta
+																						<span></span>
+																					</label>
+																				</div>
+																				<span class="m-form__help">
+																					Selectati una dintre optiuni
+																				</span>
+																			</div>
+																		</div>
+
+																		<div class="col-xl-9 col-lg-9">
+																		<label for ="data-savarsii-faptei">Data savarsirii faptei</label>
+																		<input type ="date" name = "data_savarsirii_faptei" class = "form-control" id = "data-savarsii-faptei" aria-describedby="numeHelp" placeholder="Data savarsirii faptei">
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Ati platit amenda instituita prin procesul verbal?
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<div class="m-radio-inline">
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_da"  value="1">
+																					Da
+																					<span></span>
+																				</label>
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_nu" value="2">
+																					Nu
+																					<span></span>
+																				</label>
+																			</div>
+																			<span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+																		</div>
+																	</div>
+																	<div class="col-xl-9 col-lg-9">
+																	<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
+																	<input type="file" name="imagine" id="inputGroupFile01">
+																	<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Ati platit amenda instituita prin procesul verbal?
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<div class="m-radio-inline">
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_da"  value="1">
+																					Doresc anularea amenzi pentru că sunt nevinovat iar amenda este abuzivă. Am documente şi martori care să ateste nevinovaţia mea
+																					<span></span>
+																				</label>
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_nu" value="2">
+																					Doresc preschimbarea amenzii în avertisment pentru că deşi sunt vinovat, sunt la prima abatere contravenţională.
+																					<span></span>
+																				</label>
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_nu" value="2">
+																					Doresc reducerea cuantumului amenzii pentru că amenda primită reprezintă maximul din cât mi se putea aplica sau este disproporţionată în raport de veniturile mele
+																					<span></span>
+																				</label>
+																			</div>
+																			<span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+																		</div>
+																	</div>
+
+																	<div class="">
+																		<label for="exampleFormControlTextarea1">Vă rugăm să prezentaţi situaţia descrisă din procesul verbal</label>
+            															<textarea name="situatia_descrisa_in_proces_verbal" id="exampleFormControlTextarea1" rows="10"></textarea>
+																	</div>
+
+																	<div class="">
+																		<label for="exampleFormControlTextarea1">Vă rugăm să prezentaţi situaţia de fapt din punctul dumneavoastră de vedere, mai ales dacă e diferită de de cea prezentată de agentul constatator</label>
+            															<textarea name="situatia_descrisa_personal" id="exampleFormControlTextarea1" rows="10"></textarea>
+																	</div>
+
+																	<div class="col-xl-9 col-lg-9">
+																		<input type="text" name="calitate_agent" class="form-control m-input" placeholder="Calitate" value="">
+																		<span class="m-form__help">
+																			Vă rugăm să completaţi articolele şi norma legală din procesul verbal cu privire la fapta comisă
+																		</span>
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Articolul:
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<input type="text" name="prenume_agent" class="form-control m-input" placeholder="Articolul" value="">
+																			<span class="m-form__help">
+																				Articolul din lege
+																			</span>
+																		</div>
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Alineatul:
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<input type="text" name="prenume_agent" class="form-control m-input" placeholder="Alineatul" value="">
+																			<span class="m-form__help">
+																				Alineatul din lege
+																			</span>
+																		</div>
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Norma legală în care sunt prevăzute faptele contravenţionale:
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<input type="text" name="prenume_agent" class="form-control m-input" placeholder="Norma legala" value="">
+																			<span class="m-form__help">
+																				Norma legală în care sunt prevăzute faptele contravenţionale
+																			</span>
+																		</div>
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Aveţi martori care să fie audiaţi de instanţa de judecată şi care sunt pregatiţi să vă probeze nevinovaţia?
+
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<div class="m-radio-inline">
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="addLive"  value="othersHide" id="showText" onclick="showText(1)">
+																					Da
+																					<span></span>
+																					<div class="form-group m-form__group row">
+																						<label  class="show">
+																							* Nume:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="text" name="prenume_agent"  placeholder="Popescu" value="" class="show">
+																							<span class="m-form__help" class="show">
+																								Numele
+																							</span>
+																						</div>
+																					</div>
+																					<div class="form-group m-form__group row">
+																						<label  class="show">
+																							* Prenume:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="text" name="prenume_agent"  placeholder="Popescu" value="" class="show" style="display: none;">
+																							<span  class="show">
+																								Prenumele
+																							</span>
+																						</div>
+																					</div>
+																					<div class="form-group m-form__group row">
+																						<label  class="show">
+																							* Adresa:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="text" name="prenume_agent"  placeholder="Popescu" value="" class="show">
+																							<span  class="show">
+																								Adresa
+																							</span>
+																						</div>
+																					</div>
+																				</label>
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_nu" value="2">
+																					Nu
+																					<span></span>
+																				</label>
+																			</div>
+																			<span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+																		</div>
+																	</div>
+
+																	<div class="form-group m-form__group row">
+																		<label class="col-xl-3 col-lg-3 col-form-label">
+																			* Cu ce alte documente vă puteţi apăra în faţa instanţei de judecată?
+
+																		</label>
+																		<div class="col-xl-9 col-lg-9">
+																			<div class="m-radio-inline">
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_da"  value="1">
+																					Adeverinţă de venit/talon de pensie
+																					<span></span>
+																				</label>
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_nu" value="2">
+																					Adeverinţă medicală
+																					<span></span>
+																				</label>
+																				<label class="m-radio m-radio--solid m-radio--brand">
+																					<input type="radio" name="in_posesie_nu" value="2">
+																					Alte documente
+																					<span></span>
+																				</label>
+																			</div>
+																			<span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+																		</div>
+																	</div>
+	
+
+
+
+
 																	</div>
 																</div>
 															</div>
@@ -370,6 +607,123 @@
 														<div class="row">
 															<div class="col-xl-8 offset-xl-2">
 																<div class="m-separator m-separator--dashed m-separator--lg"></div>
+
+																<div class="m-form__heading">
+																	<h3 class="m-form__heading-title">
+																		Vă rugăm să încărcaţi documentele AICI. Dacă nu le puteţi încărca în formular, ni le puteţi trimite separat pe adresa de email ….
+																	</h3>
+																</div>
+
+																	<div class="col-xl-9 col-lg-9">
+																		<br>
+																		<br>	
+																	<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																		Cartea de identitate
+																	</label>	
+																	<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
+																	<input type="file" name="imagine" id="inputGroupFile01">
+																	<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
+																	<br>
+																	<br>		
+																	</div>
+
+
+																		<div class="col-xl-9 col-lg-9">
+																			<br>
+																			<br>	
+																		<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																			Proces verbal de contraventie
+																		</label>	
+																		<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
+																		<input type="file" name="imagine" id="inputGroupFile01">
+																		<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
+																		<br>
+																		<br>		
+																		</div>
+
+
+																	<div class="col-xl-9 col-lg-9">
+																		<br>
+																		<br>	
+																		<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																			Chitanta plata amenda
+																		</label>
+																		<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
+																		<input type="file" name="imagine" id="inputGroupFile01">
+																		<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
+																		<br>
+																		<br>	
+																		</div>
+																
+																		<div class="col-xl-9 col-lg-9">
+																			<br>
+																			<br>	
+																			<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+																				Orice alt document necesar- ex copii buletine martori, adeverinţe de venit, medicale, etc
+																			</label>		
+																			<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
+																			<input type="file" name="imagine" id="inputGroupFile01">
+																			<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
+																			<br>
+																			<br>	
+																			</div>
+
+																	
+																			<div class="form-group m-form__group row">
+																				<label class="col-xl-3 col-lg-3 col-form-label">
+																					* Doriţi să vă prezentaţi la sedinţele de judecată sau doriţi judecarea cererii în lipsă?
+
+																				</label>
+																				<div class="col-xl-9 col-lg-9">
+																					<div class="m-radio-inline">
+																						<label class="m-radio m-radio--solid m-radio--brand">
+																							<input type="radio" name="in_posesie_da"  value="1">
+																							Doresc să particip la şedinţele de judecată
+																							<span></span>
+																						</label>
+																						<label class="m-radio m-radio--solid m-radio--brand">
+																							<input type="radio" name="in_posesie_nu" value="2">
+																							Doresc judecarea cererii de chemare în judecată în lipsa mea
+																							<span></span>
+																						</label><p>(chiar daca ati solicitat judecarea cererii in lipsa, trebuie sa raspundeti la solicitarile ulterioare la instantei de judecata (citatii) pentru a evita suspendarea procesului si perimarea cererii)</p>
+																					</div>
+																					<span class="m-form__help">
+																						Selectati una dintre optiuni
+																					</span>
+																				</div>
+																			</div>
+
+
+
+																			<div class="form-group m-form__group row">
+																				<label class="col-xl-3 col-lg-3 col-form-label">
+																					* Doriţi să fiţi asistat de un avocat în sala de judecată?
+
+
+																				</label>
+																				<div class="col-xl-9 col-lg-9">
+																					<div class="m-radio-inline">
+																						<label class="m-radio m-radio--solid m-radio--brand">
+																							<input type="radio" name="in_posesie_da"  value="1">
+																							Da
+																							<span></span>
+																						</label>
+																						<label class="m-radio m-radio--solid m-radio--brand">
+																							<input type="radio" name="in_posesie_nu" value="2">
+																							Nu
+																							<span></span>
+																						</label>
+																					</div>
+																					<span class="m-form__help">
+																						Selectati una dintre optiuni
+																					</span>
+																				</div>
+																			</div>
+		
+		
+		
+	
+
 																<div class="form-group m-form__group m-form__group--sm row">
 																	<div class="col-xl-12">
 																		<div class="m-checkbox-inline">
@@ -473,6 +827,19 @@
         <!--begin::Page Resources -->
 		<script src="{% static 'wizard.js' %}" type="text/javascript"></script>
 
+		<script>
+			function showText(num){
+  			if(num==1){ document.getElementsByClassName('show').style.display='block';}
+  			else {document.getElementsByClassName('show').style.display='none';}
+  			return;
+}
+		</script>
+
+		<script>
+			$('.check input:checkbox').click(function() {
+    $('.check input:checkbox').not(this).prop('checked', false);
+});  
+		</script>
 
 	</body>
 	<!-- end::Body -->
