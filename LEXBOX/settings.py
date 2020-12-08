@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -133,3 +134,12 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media directory in the root directory 
 MEDIA_URL = '/media/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'lexboxsimulator@gmail.com'
+EMAIL_HOST_PASSWORD = 'lexbox1234'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
