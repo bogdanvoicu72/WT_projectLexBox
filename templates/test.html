@@ -1,0 +1,25 @@
+<label for ="data-savarsii-faptei">Data savarsirii faptei</label>
+<input  type ="date" name = "data_savarsirii_faptei" data-date-format="DD MMMM YYYY" class = "form-control" id = "data-savarsii-faptei" aria-describedby="numeHelp" placeholder="Data savarsirii faptei">
+<button onclick="test()">Try</button>
+<p id="demo"></p>
+
+
+<script>
+
+
+var show = document.getElementById('demo');
+function test(){
+    var date = document.getElementById('data-savarsii-faptei').value;
+    var inpDate = new Date(date);
+    var today = new Date();
+    var currDay = new Date (today.getFullYear(), today.getMonth(), today.getDate());
+    var data_curenta = today.getFullYear()+' '+today.getMonth()+' '+today.getDate();
+    var x = parseInt(data_curenta);
+    var int_date = parseInt(date);
+    console.log(int_date);
+
+}
+
+
+</script>
+															
