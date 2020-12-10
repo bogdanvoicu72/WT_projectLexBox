@@ -36,6 +36,8 @@ def cerere(request):
         subject = "Ati primit o cerere noua"
         message = "O noua cerere a fost adougata in contul dumneavoastra!"
         recepient = str("dodov1999@gmail.com")
+        #uploaded_file = request.FILES['file'] # file is the name value which you have provided in form for file field
+      
         send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
@@ -84,3 +86,42 @@ def login_page(request):
             return redirect('info_avo')
 
     return render(request,'login.html')
+
+
+
+
+def user_page(request):
+
+
+    return render(request,'user_page.html')
+
+def user_login(request):
+    if request.method=='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password =password)
+        if user is not None:
+            login(request,user)
+            return redirect('user_page')
+
+
+    
+    return render(request,'user_login.html')
+
+def user_singin(request):
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request,user)
+            return redirect('login')
+        else:
+            form = UserCreationForm()
+    return render(request,'user_singin.html', {'form': form})
+
+    
+    
