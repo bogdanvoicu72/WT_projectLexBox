@@ -514,42 +514,10 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="addLive"  value="othersHide" id="showText" onclick="showText(1)">
+																					<input type="radio" onclick="addElements()" name="addLive"  value="othersHide" id="showText" onclick="showText(1)">
 																					Da
 																					<span></span>
-																					<div class="form-group m-form__group row">
-																						<label  class="show">
-																							* Nume:
-																						</label>
-																						<div class="col-xl-9 col-lg-9">
-																							<input type="text" name="prenume_agent"  placeholder="Popescu" value="" class="show">
-																							<span class="m-form__help" class="show">
-																								Numele
-																							</span>
-																						</div>
-																					</div>
-																					<div class="form-group m-form__group row">
-																						<label  class="show">
-																							* Prenume:
-																						</label>
-																						<div class="col-xl-9 col-lg-9">
-																							<input type="text" name="prenume_agent"  placeholder="Popescu" value="" class="show" style="display: none;">
-																							<span  class="show">
-																								Prenumele
-																							</span>
-																						</div>
-																					</div>
-																					<div class="form-group m-form__group row">
-																						<label  class="show">
-																							* Adresa:
-																						</label>
-																						<div class="col-xl-9 col-lg-9">
-																							<input type="text" name="prenume_agent"  placeholder="Popescu" value="" class="show">
-																							<span  class="show">
-																								Adresa
-																							</span>
-																						</div>
-																					</div>
+																					
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
 																					<input type="radio" name="in_posesie_nu" value="2">
@@ -828,18 +796,77 @@
 		<script src="{% static 'wizard.js' %}" type="text/javascript"></script>
 
 		<script>
-			function showText(num){
-  			if(num==1){ document.getElementsByClassName('show').style.display='block';}
-  			else {document.getElementsByClassName('show').style.display='none';}
-  			return;
+function addElements(){
+   
+   var label_nume = document.createElement("LABEL");
+   var label_nume_val = "Numele Martorului:";
+   label_nume.innerHTML = label_nume_val;
+   document.body.appendChild(label_nume);
+
+
+   var nume = document.createElement("INPUT");
+   nume.setAttribute("type", "text");
+   document.body.appendChild(nume);
+
+   var label_prenume = document.createElement("LABEL");
+   var label_prenume_val = "Prenumele Martorului:";
+   label_prenume.innerHTML = label_prenume_val;
+   document.body.appendChild(label_prenume);
+
+
+   var prenume = document.createElement("INPUT");
+   prenume.setAttribute("type", "text");
+   document.body.appendChild(prenume);
+   
+   var label_adresa = document.createElement("LABEL");
+   var label_adresa_val = "Adresa:";
+   label_adresa.innerHTML = label_adresa_val;
+   document.body.appendChild(label_adresa);
+
+   var adresa = document.createElement("INPUT");
+   prenume.setAttribute("type", "text");
+   document.body.appendChild(adresa);
+
+   var btn = document.createElement("BUTTON");
+   btn.id = "adaugaom"; 
+   btn.innerHTML = "Adaugati inca un martor";
+   btn.onclick = function(){
+	   var label_nume = document.createElement("LABEL");
+   var label_nume_val = "Numele Martorului:";
+   label_nume.innerHTML = label_nume_val;
+   document.body.appendChild(label_nume);
+
+
+   var nume = document.createElement("INPUT");
+   nume.setAttribute("type", "text");
+   document.body.appendChild(nume);
+
+   var label_prenume = document.createElement("LABEL");
+   var label_prenume_val = "Prenumele Martorului:";
+   label_prenume.innerHTML = label_prenume_val;
+   document.body.appendChild(label_prenume);
+
+
+   var prenume = document.createElement("INPUT");
+   prenume.setAttribute("type", "text");
+   document.body.appendChild(prenume);
+   
+   var label_adresa = document.createElement("LABEL");
+   var label_adresa_val = "Adresa:";
+   label_adresa.innerHTML = label_adresa_val;
+   document.body.appendChild(label_adresa);
+
+   var adresa = document.createElement("INPUT");
+   prenume.setAttribute("type", "text");
+   document.body.appendChild(adresa);
+
+   }
+   document.body.appendChild(btn);
 }
+
+
 		</script>
 
-		<script>
-			$('.check input:checkbox').click(function() {
-    $('.check input:checkbox').not(this).prop('checked', false);
-});  
-		</script>
 
 	</body>
 	<!-- end::Body -->
