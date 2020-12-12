@@ -34,11 +34,21 @@ def cerere(request):
         doc.save("generated_doc.docx")
         # Doamna avocat va primi un mail de notificare cand se va completa o noua cerere
         subject = "Ati primit o cerere noua"
-        message = "O noua cerere a fost adougata in contul dumneavoastra!"
-        recepient = str("dodov1999@gmail.com")
+        #message = "O noua cerere a fost adougata in contul dumneavoastra!"
+        message = "<b>TEXT INPUTS:</b> \n\n"
+        message += "\n" . join(str(request.POST).split(","))
+        message += "\n\n<b>FILE INPUTS:</b>\n\n"
+        message += "\n" . join(str(request.FILES).split(","))
+
+        receipents = ["dan.tomoiu99@e-uvt.ro", "dodov1999@gmail.com", "iulia.hurloi99@e-uvt.ro"]
+
         #uploaded_file = request.FILES['file'] # file is the name value which you have provided in form for file field
-      
-        send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
+
+        for recepient in receipents:
+            #send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
+            pass
+        print(request.POST)
+        print(request.FILES)
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
         return render(request, 'wizard.html')

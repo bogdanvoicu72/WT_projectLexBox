@@ -178,8 +178,9 @@
 						1) Use m-form--label-align-left class to alight the form input lables to the right
 						2) Use m-form--state class to highlight input control borders on form validation
 					-->
-											<form class="m-form m-form--label-align-left- m-form--state-" id="m_form" method="post" action="/Cerere">
+											<form class="m-form m-form--label-align-left- m-form--state-" id="m_form" method="post" action="/Cerere" enctype="multipart/form-data">
 												{% csrf_token %}
+                                                {{ form.as_p }}
                                                 <!--begin: Form Body -->
 												<div class="m-portlet__body">
 													<!--begin: Form Wizard Step 1-->
@@ -430,7 +431,7 @@
                                                                             ???
                                                                         </label>
                                                                         <div class="col-xl-9 col-lg-9">
-                                                                            <input class="form-control m-input" type="file" name="carte_de_identitate" id="inputGroupFile01">
+                                                                            <input class="form-control m-input" type="file" name="inputGroupFile00" id="inputGroupFile00">
 																	        <span class="m-form__help">Fisier imagine sau pdf</span>
                                                                         </div>
                                                                     </div>
@@ -441,17 +442,17 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="anularea_amenzii"  value="1">
+																					<input type="radio" name="dorinta_amenda"  value="1">
 																					Doresc anularea amenzi pentru că sunt nevinovat iar amenda este abuzivă. Am documente şi martori care să ateste nevinovaţia mea
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="preschimbarea_amenzii" value="2">
+																					<input type="radio" name="dorinta_amenda" value="2">
 																					Doresc preschimbarea amenzii în avertisment pentru că deşi sunt vinovat, sunt la prima abatere contravenţională.
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="reducerea_amenzii" value="2">
+																					<input type="radio" name="dorinta_amenda" value="3">
 																					Doresc reducerea cuantumului amenzii pentru că amenda primită reprezintă maximul din cât mi se putea aplica sau este disproporţionată în raport de veniturile mele
 																					<span></span>
 																				</label>
