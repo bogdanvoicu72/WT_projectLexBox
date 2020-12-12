@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-
+from flask import request
 
 # At first running, run next two commands(for windows). For linux/mac check official Flask documentation
 # set FLASK_APP=flaskr
@@ -31,9 +31,11 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/hello')
+    @app.route('/hello', methods=['POST'])
     def hello():
-        return 'Hello, World!'
+        req_data = request.get_json()
+        print(req_data)
+        return str(req_data)
 
     @app.route('/')
     def index():
