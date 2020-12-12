@@ -12,3 +12,4 @@ sqlparse==0.4.1
 
 Flask~=1.1.2
 requests~=2.24.0
+pymongo~=3.11.2

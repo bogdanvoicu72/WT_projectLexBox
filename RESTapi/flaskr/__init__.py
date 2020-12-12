@@ -3,6 +3,9 @@ import os
 from flask import Flask
 from flask import request
 
+from RESTapi import database_connection as dbs
+from RESTapi import validate
+
 # At first running, run next two commands(for windows). For linux/mac check official Flask documentation
 # set FLASK_APP=flaskr
 # set FLASK_ENV=development
@@ -34,8 +37,20 @@ def create_app(test_config=None):
     @app.route('/hello', methods=['POST'])
     def hello():
         req_data = request.get_json()
-        print(req_data)
-        return str(req_data)
+
+        database = dbs.connect("lexbox")
+
+        if database is not None:
+            collection = database["lexbox_data"]
+
+            if validate.validate(req_data):
+                collection.insert_one(req_data)
+            else:
+                print("ERROR: JSON data is not valid!")
+
+            print(collection)
+
+        return ""
 
     @app.route('/')
     def index():
