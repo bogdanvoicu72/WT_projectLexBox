@@ -340,12 +340,12 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie"  value="2">
+																					<input type="radio" name="in_posesie_da"  value="1">
 																					Da
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie" value="2">
+																					<input type="radio" name="in_posesie_nu" value="2">
 																					Nu
 																					<span></span>
 																				</label>
@@ -367,7 +367,7 @@
 																<div class="m-form__section m-form__section--first">
 																	<div class="m-form__heading">
 																		<h3 class="m-form__heading-title">
-																			Informatii 3
+																			Detalii 3
 																		</h3>
 																		<div class="form-group m-form__group row">
 																			<label class="col-xl-3 col-lg-3 col-form-label">
@@ -376,12 +376,12 @@
 																			<div class="col-xl-9 col-lg-9">
 																				<div class="m-radio-inline">
 																					<label class="m-radio m-radio--solid m-radio--brand">
-																						<input type="radio" name="in_posesie_da"  value="1">
+																						<input type="radio" name="inmanarea_la_fata_locului"  value="1">
 																						Prin inmanarea la fata locului
 																						<span></span>
 																					</label>
 																					<label class="m-radio m-radio--solid m-radio--brand">
-																						<input type="radio" name="in_posesie_nu" value="2">
+																						<input type="radio" name="prin_posta" value="2">
 																						Prin posta
 																						<span></span>
 																					</label>
@@ -404,12 +404,12 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_da"  value="1">
+																					<input type="radio" name="amenda_da"  value="1">
 																					Da
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_nu" value="2">
+																					<input type="radio" name="amenda_nu" value="2">
 																					Nu
 																					<span></span>
 																				</label>
@@ -432,17 +432,17 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_da"  value="1">
+																					<input type="radio" name="anularea_amenzii"  value="1">
 																					Doresc anularea amenzi pentru că sunt nevinovat iar amenda este abuzivă. Am documente şi martori care să ateste nevinovaţia mea
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_nu" value="2">
+																					<input type="radio" name="preschimbarea_amenzii" value="2">
 																					Doresc preschimbarea amenzii în avertisment pentru că deşi sunt vinovat, sunt la prima abatere contravenţională.
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_nu" value="2">
+																					<input type="radio" name="reducerea_amenzii" value="2">
 																					Doresc reducerea cuantumului amenzii pentru că amenda primită reprezintă maximul din cât mi se putea aplica sau este disproporţionată în raport de veniturile mele
 																					<span></span>
 																				</label>
@@ -475,7 +475,7 @@
 																			* Articolul:
 																		</label>
 																		<div class="col-xl-9 col-lg-9">
-																			<input type="text" name="prenume_agent" class="form-control m-input" placeholder="Articolul" value="">
+																			<input type="text" name="articolul_lege" class="form-control m-input" placeholder="Articolul" value="">
 																			<span class="m-form__help">
 																				Articolul din lege
 																			</span>
@@ -487,7 +487,7 @@
 																			* Alineatul:
 																		</label>
 																		<div class="col-xl-9 col-lg-9">
-																			<input type="text" name="prenume_agent" class="form-control m-input" placeholder="Alineatul" value="">
+																			<input type="text" name="alineatul_lege" class="form-control m-input" placeholder="Alineatul" value="">
 																			<span class="m-form__help">
 																				Alineatul din lege
 																			</span>
@@ -499,7 +499,7 @@
 																			* Norma legală în care sunt prevăzute faptele contravenţionale:
 																		</label>
 																		<div class="col-xl-9 col-lg-9">
-																			<input type="text" name="prenume_agent" class="form-control m-input" placeholder="Norma legala" value="">
+																			<input type="text" name="norma_legala" class="form-control m-input" placeholder="Norma legala" value="">
 																			<span class="m-form__help">
 																				Norma legală în care sunt prevăzute faptele contravenţionale
 																			</span>
@@ -517,10 +517,42 @@
 																					<input type="radio" onclick="addElements()" name="addLive"  value="othersHide" id="showText" onclick="showText(1)">
 																					Da
 																					<span></span>
-																					
+																					<div class="form-group m-form__group row">
+																						<label  class="show">
+																							* Nume:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="text" name="nume_martor"  placeholder="Popescu" value="" class="show">
+																							<span class="m-form__help" class="show">
+																								Numele
+																							</span>
+																						</div>
+																					</div>
+																					<div class="form-group m-form__group row">
+																						<label  class="show">
+																							* Prenume:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="text" name="prenume_martor"  placeholder="Popescu" value="" class="show" style="display: none;">
+																							<span  class="show">
+																								Prenumele
+																							</span>
+																						</div>
+																					</div>
+																					<div class="form-group m-form__group row">
+																						<label  class="show">
+																							* Adresa:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="text" name="adresa_martor"  placeholder="Popescu" value="" class="show">
+																							<span  class="show">
+																								Adresa
+																							</span>
+																						</div>
+																					</div>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_nu" value="2">
+																					<input type="radio" name="nu_martor" value="2">
 																					Nu
 																					<span></span>
 																				</label>
@@ -539,17 +571,17 @@
 																		<div class="col-xl-9 col-lg-9">
 																			<div class="m-radio-inline">
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_da"  value="1">
+																					<input type="radio" name="adeverinta_venit"  value="1">
 																					Adeverinţă de venit/talon de pensie
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_nu" value="2">
+																					<input type="radio" name="adeverinta_medicala" value="2">
 																					Adeverinţă medicală
 																					<span></span>
 																				</label>
 																				<label class="m-radio m-radio--solid m-radio--brand">
-																					<input type="radio" name="in_posesie_nu" value="2">
+																					<input type="radio" name="alta_documente" value="2">
 																					Alte documente
 																					<span></span>
 																				</label>
@@ -589,7 +621,7 @@
 																		Cartea de identitate
 																	</label>	
 																	<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
-																	<input type="file" name="imagine" id="inputGroupFile01">
+																	<input type="file" name="carte_de_identitate" id="inputGroupFile01">
 																	<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
 																	<br>
 																	<br>		
@@ -603,7 +635,7 @@
 																			Proces verbal de contraventie
 																		</label>	
 																		<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
-																		<input type="file" name="imagine" id="inputGroupFile01">
+																		<input type="file" name="imagine_proces_verbal" id="inputGroupFile01">
 																		<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
 																		<br>
 																		<br>		
@@ -617,7 +649,7 @@
 																			Chitanta plata amenda
 																		</label>
 																		<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
-																		<input type="file" name="imagine" id="inputGroupFile01">
+																		<input type="file" name="imagine_chitanta_plata" id="inputGroupFile01">
 																		<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
 																		<br>
 																		<br>	
@@ -630,7 +662,7 @@
 																				Orice alt document necesar- ex copii buletine martori, adeverinţe de venit, medicale, etc
 																			</label>		
 																			<span class="input-group-text" id="inputGroupFileAddon01">Incarcati imaginea</span>
-																			<input type="file" name="imagine" id="inputGroupFile01">
+																			<input type="file" name="imagine_orice_alta_imagine" id="inputGroupFile01">
 																			<label  for="inputGroupFile01">Imaginea sa fie pdf sau jpg</label>
 																			<br>
 																			<br>	
@@ -645,12 +677,12 @@
 																				<div class="col-xl-9 col-lg-9">
 																					<div class="m-radio-inline">
 																						<label class="m-radio m-radio--solid m-radio--brand">
-																							<input type="radio" name="in_posesie_da"  value="1">
+																							<input type="radio" name="da_particip"  value="1">
 																							Doresc să particip la şedinţele de judecată
 																							<span></span>
 																						</label>
 																						<label class="m-radio m-radio--solid m-radio--brand">
-																							<input type="radio" name="in_posesie_nu" value="2">
+																							<input type="radio" name="nu_particip" value="2">
 																							Doresc judecarea cererii de chemare în judecată în lipsa mea
 																							<span></span>
 																						</label><p>(chiar daca ati solicitat judecarea cererii in lipsa, trebuie sa raspundeti la solicitarile ulterioare la instantei de judecata (citatii) pentru a evita suspendarea procesului si perimarea cererii)</p>
@@ -672,12 +704,12 @@
 																				<div class="col-xl-9 col-lg-9">
 																					<div class="m-radio-inline">
 																						<label class="m-radio m-radio--solid m-radio--brand">
-																							<input type="radio" name="in_posesie_da"  value="1">
+																							<input type="radio" name="da_vreau_avocat"  value="1">
 																							Da
 																							<span></span>
 																						</label>
 																						<label class="m-radio m-radio--solid m-radio--brand">
-																							<input type="radio" name="in_posesie_nu" value="2">
+																							<input type="radio" name="nu_vreau_avocat" value="2">
 																							Nu
 																							<span></span>
 																						</label>

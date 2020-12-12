@@ -1,0 +1,19 @@
+{% load static %}
+<html>
+
+<body>
+    
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" placeholder="Username.." name="username">
+        <input type="password" placeholder="Password.." name="password">
+        <input type="submit" value="Login">
+    </form>
+    <label>Daca nu aveti cont </label>
+    <button onclick="window.location.href='user_singin';">
+        Click Here
+      </button>
+</body>
+
+</html>
