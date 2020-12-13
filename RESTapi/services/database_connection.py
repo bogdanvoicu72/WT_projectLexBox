@@ -14,7 +14,7 @@ def connect(database: str):
         _database = cluster[database]
     except Exception as error:
         _database = None
-        print(error.__str__())
+        print("Eroare: " + error.__str__())
 
     return _database
 

@@ -3,14 +3,12 @@ import os
 from flask import Flask
 from flask import request
 
-from RESTapi import database_connection as dbs
-from RESTapi import validate
-
 # At first running, run next two commands(for windows). For linux/mac check official Flask documentation
 # set FLASK_APP=flaskr
 # set FLASK_ENV=development
 
 # To start flask rest api run command: flask run
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -19,6 +17,11 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
+
+    import RESTapi.services.database_connection as dbs
+    import RESTapi.services.validate as validate
+
+    #app.register_blueprint(services)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -49,6 +52,8 @@ def create_app(test_config=None):
                 print("ERROR: JSON data is not valid!")
 
             print(collection)
+        else:
+            print("Database is None")
 
         return ""
 

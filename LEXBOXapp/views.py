@@ -51,8 +51,8 @@ def cerere(request):
 
         request_data = json.dumps(request.POST)
         req = requests.post(REST_API_URL, json=request_data)
-
-        print("from request: " + str(req))
+        print(request_data)
+        #print("from request: " + str(req))
 
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
