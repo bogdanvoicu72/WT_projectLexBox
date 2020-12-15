@@ -18,9 +18,6 @@ def create_app(test_config=None):
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
 
-    import RESTapi.services.database_connection as dbs
-    import RESTapi.services.validate as validate
-
     #app.register_blueprint(services)
 
     if test_config is None:
@@ -39,15 +36,19 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/hello', methods=['POST'])
     def hello():
-        req_data = request.get_json()
+        import RESTapi.services.database_connection as dbs
+        import RESTapi.services.validate as validate
+        import json
 
+        req_data = request.get_json()
+        print(req_data)
         database = dbs.connect("lexbox")
 
         if database is not None:
             collection = database["lexbox_data"]
 
             if validate.validate(req_data):
-                collection.insert_one(req_data)
+                collection.insert_one(json.loads(str(req_data)))
             else:
                 print("ERROR: JSON data is not valid!")
 
