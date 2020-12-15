@@ -49,10 +49,12 @@ def cerere(request):
             # send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
             pass
 
-        request_data = json.dumps(request.POST)
-        req = requests.post(REST_API_URL, json=request_data)
-        print(request_data)
-        #print("from request: " + str(req))
+        # Temporay disabled database insert
+        # req = requests.post(REST_API_URL, json=request_data)
+        import RESTapi.services.handle_file_uploads as fp
+
+        # TODO(documented first): Delegate this call to REST API
+        fp.upload_files(request.FILES, request.POST["csrfmiddlewaretoken"])
 
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
