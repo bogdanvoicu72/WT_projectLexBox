@@ -38,7 +38,6 @@ def create_app(test_config=None):
     def hello():
         import RESTapi.services.database_connection as dbs
         import RESTapi.services.validate as validate
-        import json
 
         req_data = request.get_json()
         print(req_data)
@@ -48,7 +47,7 @@ def create_app(test_config=None):
             collection = database["lexbox_data"]
 
             if validate.validate(req_data):
-                collection.insert_one(json.loads(str(req_data)))
+                collection.insert_one(req_data)
             else:
                 print("ERROR: JSON data is not valid!")
 

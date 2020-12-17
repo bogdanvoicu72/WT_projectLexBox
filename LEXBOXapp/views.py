@@ -41,18 +41,25 @@ def cerere(request):
         message += "\n\n<b>FILE INPUTS:</b>\n\n"
         message += "\n".join(str(request.FILES).split(","))
 
-        receipents = ["dan.tomoiu99@e-uvt.ro", "dodov1999@gmail.com", "iulia.hurloi99@e-uvt.ro"]
+        recipients = ["dan.tomoiu99@e-uvt.ro", "dodov1999@gmail.com", "iulia.hurloi99@e-uvt.ro"]
 
-        # uploaded_file = request.FILES['file'] # file is the name value which you have provided in form for file field
-
-        for recepient in receipents:
-            # send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
+        for recipient in recipients:
+            # send_mail(subject,message, EMAIL_HOST_USER, [recipient], fail_silently=False)
             pass
 
-        request_data = json.dumps(request.POST)
-        req = requests.post(REST_API_URL, json=request_data)
+        import RESTapi.services.handle_file_uploads as fp
+
+        # TODO(documented first): Delegate this call to REST API
+        filenames = fp.upload_files(request.FILES, request.POST["csrfmiddlewaretoken"])
+
+        request_data = dict(request.POST)
+        request_data["carte_de_identitate"] = filenames["carte_de_identitate"]
+        request_data["imagine_proces_verbal"] = filenames["imagine_proces_verbal"]
+        request_data["imagine_chitanta_plata"] = filenames["imagine_chitanta_plata"]
+        request_data["imagine_orice_alta_imagine"] = filenames["imagine_orice_alta_imagine"]
+
+        requests.post(REST_API_URL, json=request_data)
         print(request_data)
-        #print("from request: " + str(req))
 
         return render(request, 'success_request.html', context={'data': request.POST})
     else:
