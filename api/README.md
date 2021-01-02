@@ -34,6 +34,13 @@ the same `environment variables` as present in the `docker-compose.yml` file.
 Also, bear in mind that the following commands apply to UNIX-like systems,
 like Linux and MacOS. If using Windows, go ask Billie for help. 
 
+### Note 
+Before running the app, make sure to visit `http://localhost:9000`. The login info are the
+same as the environment variables `MINIO_ACCESS_KEY``MINIO_SECRET_KEY`. 
+Press the big red plus button on the bottom right side of the screen to create a new bucket.
+Make sure to name it `lexbox`. Then you're good to go.
+
+
 * Open up a terminal
 * Navigate to the project's root directory
 * Run: `python3 -m venv venv`
