@@ -19,7 +19,11 @@ a `.env` file in the project's root directory. These are:
 * MONGO_USER -> the mongodb user 
 * MONGO_PASSWORD -> the mongodb password
 * OWNER_EMAIL -> the email of the application owner
+* MINIO_ACCESS_KEY -> the access key for Minio 
+* MINIO_SECRET_KEY -> the secret key for Minio
 
+### Note
+Default values for `Mongo` and `Minio` can be found in the `docker-compose.yml` file.
 ## Running the app
 First make sure to have MongoDb and Minio instances running. They can both be 
 bootstrapped by using [docker-compose](https://docs.docker.com/compose/), specifically
