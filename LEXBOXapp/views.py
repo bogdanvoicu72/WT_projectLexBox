@@ -112,7 +112,7 @@ def user_login(request):    #pagina de Login pentru avocat sau utilizator
     return render(request, 'user_login.html')
 
 
-def user_singin(request):     #pagina de register pentru Utilizator
+def user_signin(request):     #pagina de register pentru Utilizator
     if request.method == 'POST':
         requests.post('http://127.0.0.1:5000/register', json = json.dumps(request.POST))
 

@@ -12,5 +12,5 @@ urlpatterns = [
     #path('login',views.login_page, name='login'),
     path('user_page',views.user_page,name='user_page'),
     path('user_login',views.user_login,name='user_login'),
-    path('user_singin',views.user_singin,name='user_singin'),
+    path('user_singin', views.user_signin, name='user_singin'),
 ]
