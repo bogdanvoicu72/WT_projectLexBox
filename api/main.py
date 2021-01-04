@@ -18,6 +18,10 @@ def login():
 def register():
     return Controller.register(request_form=request.form, users=users, mail=mail)
 
+@app.route('/register_avocat',methods=['POST'])
+def register_avocat():
+    return Controller.register_avocat(request_form=request.form, users=users, mail=mail)
+
 
 @app.route('/refresh', methods=['POST'])
 @jwt_refresh_token_required

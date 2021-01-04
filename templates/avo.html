@@ -3,7 +3,18 @@
 
   <h2>Sign up</h2>
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+      {% csrf_token %}
+      <label>Prenumele</label>
+      <input type="text" name="firstName"><br><br>
+
+      <label>Nume</label>
+      <input type="text" name="lastName"><br><br>
+
+      <label>Email</label>
+      <input type="email" name="email"><br><br>
+
+      <label>Barou</label>
+      <input type="text" name="barou"><br><br>
+
     <button type="submit">Sign up</button>
   </form>

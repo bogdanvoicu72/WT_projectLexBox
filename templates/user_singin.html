@@ -1,6 +1,42 @@
 <h2>Sign up</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+
+    <label>Prenumele</label>
+    <input type="text" name="firstName"><br><br>
+
+      <label>Nume</label>
+      <input type="text" name="lastName"><br><br>
+
+      <label>Email</label>
+      <input type="email" name="email"><br><br>
+
+      <label>Cnp</label>
+      <input type="number" name="cnp"><br><br>
+
+      <label>Serie Cartde de Identitate</label>
+      <input type="text" name="ciSeries"><br><br>
+
+      <label>Numar Carte de Identitate</label>
+      <input type="number" name="ciNumber"><br><br>
+
+      <label>Numar locuinta</label>
+      <input type="number" name="number"><br><br>
+
+      <label>Etaj</label>
+      <input type="number" name="stair"><br><br>
+
+      <label>Bloc</label>
+      <input type="text" name="block"><br><br>
+
+
+      <label>Apartament</label>
+      <input type="text" name="apartment"><br><br>
+
+      <label>Judet</label>
+      <input type="text" name="county"><br><br>
+
+
+
     <button type="submit">Sign up</button>
   </form>

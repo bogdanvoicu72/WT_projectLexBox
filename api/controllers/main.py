@@ -3,9 +3,15 @@ from controllers.generation.generate_service import generate_service
 from controllers.login.login_service import login_service
 from controllers.refresh.refresh_service import refresh_service
 from controllers.register.register_service import register_service
+from controllers.register_avocat.register_service_avocat import register_service_avocat
 
 
 class Controller:
+
+    @staticmethod
+    def register_avocat(request_form, users,mail):
+        return register_service_avocat(request_form, users,mail)
+
     @staticmethod
     def register(request_form, users, mail):
         return register_service(request_form, users, mail)
