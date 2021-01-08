@@ -102,19 +102,18 @@ def user_page(request):      #Pagina unde utilizatprul CONECTAT poate sa faca ce
 
 def user_login(request):    #pagina de Login pentru avocat sau utilizator
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('user_page')
+        result = requests.post("http://127.0.0.1:5000/login", request.POST)
+
+        if result.status_code == 200:
+            return redirect('/Cerere')
 
     return render(request, 'user_login.html')
 
 
 def user_signin(request):     #pagina de register pentru Utilizator
     if request.method == 'POST':
-        requests.post('http://127.0.0.1:5000/register', json = json.dumps(request.POST))
+
+        result = requests.post("http://127.0.0.1:5000/register", request.POST)
 
     return render(request, 'user_singin.html')
 
