@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cereri</title>
+    <link rel="stylesheet" href="../static/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <h3 class="navbar-brand" >LexBox</h3>
+</nav>
+<div class="jumbotron" >
+    <h1 >Acestea sunt cererile dumneavoastra</h1>
+<div style="padding-top: 30px;">
+    {% for cerere in cereri %}
+    {% if cerere.id % 2 == 1  %}
+
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;" >
+    {% else %}
+    <div class="card  bg-secondary mb-3" style="max-width: 20rem;" >
+        {% endif %}
+  <div class="card-header">
+      Cerere
+      <div style="float: right;">
+          {% if cerere.status == 'noua' %}
+          <span class="badge badge-pill badge-info">Noua</span>
+    {% elif cerere.status == 'progres' %}
+         <span class="badge badge-pill badge-warning">In procesare</span>
+     {% else  %}
+         <span class="badge badge-pill badge-success">Terminata</span>
+     {% endif %}
+      </div>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{{cerere.nume}}</h4>
+    <p class="card-text">Inspectorat: {{cerere.inspectorat}}</p>
+    <p class="card-text">Data: {{cerere.data}}</p>
+
+       {% if cerere.id % 2 == 1  %}
+
+<button type="button" class="btn btn-secondary btn-sm" >Seteaza status</button>
+    {% else %}
+   <button type="button" class="btn btn-primary btn-sm" >Seteaza status</button>
+        {% endif %}
+      <button type="button" class="btn btn-danger btn-sm">Refuza cererea</button>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+</body>
+</html>
