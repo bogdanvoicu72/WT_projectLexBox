@@ -1,13 +1,16 @@
 import os
 
-from flask import render_template
+from flask import render_template, jsonify
 from flask_jwt_extended import create_access_token, create_refresh_token
 from flask_mail import Message
 
 from common.response_builder import ResponseBuilder
+from common.key_builder import KeyBuilder
 
 
 def build_user_input(request_form):
+    salt = KeyBuilder.make_salt()
+    key = KeyBuilder.make_key(salt, request_form['password'])
     return {
         "firstName": request_form['firstName'],
         "lastName": request_form['lastName'],
@@ -17,7 +20,7 @@ def build_user_input(request_form):
             "series": request_form['ciSeries'],
             "number": request_form['ciNumber']
         },
-        "email_confirmed": False,
+        "email_confirmed": True,
         "address": {
             "city": request_form['city'],
             "street": request_form['street'],
@@ -26,7 +29,9 @@ def build_user_input(request_form):
             "stair": request_form['stair'],
             "apartment": request_form['apartment'],
             "county": request_form['county']
-        }
+        },
+        "salt": salt,
+        "key": key
     }
 
 

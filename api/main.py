@@ -25,16 +25,15 @@ def refresh():
     return Controller.refresh()
 
 
-@app.route('/confirm_email', methods=['POST'])
+@app.route('/confirm_email', methods=['GET'])
 @jwt_required
 def confirm():
     return Controller.confirm(request_form=request.form, users=users)
 
 
 @app.route('/generate_document', methods=['POST'])
-@jwt_required
 def generate():
-    return Controller.generate(request_json=request.json, users=users, mail=mail, minio_client=minio_client,
+    return Controller.generate(request_json=request.form, users=users, mail=mail, minio_client=minio_client,
                                owner_email=owner_email)
 
 
