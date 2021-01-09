@@ -1,5 +1,6 @@
 from controllers.confirmation.confirm_service import confirm_service
 from controllers.generation.generate_service import generate_service
+from controllers.insert.insert_service import insert_service
 from controllers.login.login_service import login_service
 from controllers.refresh.refresh_service import refresh_service
 from controllers.register.register_service import register_service
@@ -25,3 +26,7 @@ class Controller:
     @staticmethod
     def generate(request_json, users, mail, minio_client, owner_email):
         return generate_service(request_json, users, mail, minio_client, owner_email)
+
+    @staticmethod
+    def insert(request_json, users, files, records, minio_client):
+        return insert_service(request_json, files, users, records, minio_client)
