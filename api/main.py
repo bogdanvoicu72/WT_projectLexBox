@@ -6,7 +6,7 @@ from flask_jwt_extended import (
 from config.setup import setup
 from controllers.main import Controller
 
-app, mail, jwt, users, minio_client, owner_email = setup()
+app, mail, jwt, users, records, minio_client, owner_email = setup()
 
 
 @app.route('/login', methods=['POST'])
@@ -35,6 +35,11 @@ def confirm():
 def generate():
     return Controller.generate(request_json=request.form, users=users, mail=mail, minio_client=minio_client,
                                owner_email=owner_email)
+
+
+@app.route('/insert_record', methods=['POST'])
+def insert():
+    return Controller.insert(request_json=request.form, files=request.files, users=users, records=records, minio_client=minio_client)
 
 
 if __name__ == '__main__':

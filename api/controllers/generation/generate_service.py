@@ -11,25 +11,47 @@ from common.response_builder import ResponseBuilder
 
 def build_document_input(user, request_json):
     return {
-        "law": str(request_json.get('articolul', None)) + "/" + str(request_json.get('alineatul', None)),
-        "first_name": request_json.get('nume', None),
-        "last_name": request_json.get('prenume', None),
-        "address": request_json.get('adresa_procedurala', None),
+        "law": request_json.get('lege', None),
+        "first_name": user['firstName'],
+        "last_name": user['lastName'],
+        "address": user['address'],
+        "ci": user['ci'],
         "assisted": request_json.get('asistat_avocat', None),
-        "record": request_json.get('record', None),
-        "fine": request_json.get('amenda_platita', None),
-        "sanction": "",
-        "agreed_to_sanction": request_json.get('dorinta_amenda', None),
+        "accused": {
+            'name': request_json.get('institutia_agent', None),
+            'address': {
+                'city': request_json.get('accused_city', None),
+                'street': request_json.get('accused_street', None),
+                'number': request_json.get('accused_number', None),
+                'county': request_json.get('accused_county', None)
+            },
+            'code': '515607',
+            'phone': request_json.get('accused_phone', None),
+            'fax': request_json.get('accused_phone', None),
+            'email': request_json.get('accused_email', None)
+        },
+        "record": {
+            'series': request_json.get('record_series', None),
+            'number': request_json.get('record_number', None),
+            'date': request_json.get('record_date', None),
+            'communication_date': request_json.get('record_communication', None)
+        },
+        "fine": request_json.get('valoarea_amenzii', None),
+        "sanction": "Sanctiune",
+        "agreed_to_sanction": 1,
+        "witnesses": []
     }
 
 
 def generate_service(request_json, users, mail, minio_client, owner_email):
     try:
         doc = DocxTemplate("templates/request.docx")
-        context = build_document_input(None, request_json)
+        user = users.find_one({"email": request_json['e_mail']})
+        context = build_document_input(user, request_json)
+        print(context)
         doc.render(context)
         doc.save("result.docx")
-        file_name = 'asd.docx'
+        file_name = f'Cerere-{user["firstName"]}-{user["lastName"]}-{str(uuid.uuid1())}.docx'
         with open("result.docx", "rb") as f:
             minio_client.upload_fileobj(f, 'lexbox', file_name)
         os.remove('result.docx')
@@ -37,11 +59,11 @@ def generate_service(request_json, users, mail, minio_client, owner_email):
 
         msg = Message('Notificare LexBox', sender=os.getenv('EMAIL'), recipients=[owner_email])
         msg.html = render_template("NotificationEmail.html",
-                                   firstName="user['firstName']",
-                                   lastName="user['lastName']",
+                                   firstName=user['firstName'],
+                                   lastName=user['lastName'],
                                    documentUrl=download_link)
         mail.send(msg)
-        return ResponseBuilder.success({"download_link": download_link})
+        return ResponseBuilder.success({"download_link": download_link, 'filename': file_name})
     except Exception as e:
-        print(e)
+        print(str(e))
         return ResponseBuilder.failure(str(e))
