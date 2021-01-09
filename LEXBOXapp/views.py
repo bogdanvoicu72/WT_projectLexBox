@@ -26,19 +26,25 @@ def home(request):
 # before running this.
 
 def cerere(request):
-    print(request.session['user_access'])
+
+    res = requests.post('http://127.0.0.1:5000/user_info', {'uid': request.session['user_access']['uid']})
+    res_json = json.loads(res.text)
+
     if request.session['user_access']['success'] is True:
         if request.method == "POST":
-            response = requests.post('http://127.0.0.1:5000/generate_document', request.POST)
-
             req = request.POST.copy()
+            req['uid'] = request.session['user_access']['uid']
+
+            response = requests.post('http://127.0.0.1:5000/generate_document', req)
             req['docx'] = json.loads(response.text)['filename']
 
             response2 = requests.post('http://127.0.0.1:5000/insert_record', req, files=request.FILES)
 
             return render(request, 'success_request.html', context={'data': request.POST})
         else:
-            return render(request, 'wizard.html')
+            user_info = json.loads(res_json["user"].replace("'", '"'))
+
+            return render(request, 'wizard.html', context={'user': user_info})
     else:
         return redirect('/user_login')
 

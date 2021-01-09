@@ -193,68 +193,13 @@
 																			Datele persoanei sancţionate
 																		</h3>
 																	</div>
-																	<div class="form-group m-form__group row">
-																		<label class="col-xl-3 col-lg-3 col-form-label">
-																			* Nume:
-																		</label>
-																		<div class="col-xl-9 col-lg-9">
-																			<input type="text" name="nume" class="form-control m-input" placeholder="Nicusor" value="">
-																			<span class="m-form__help">
-																				Numele persoanei sancţionate
-																			</span>
-																		</div>
-																	</div>
-                                                                    <div class="form-group m-form__group row">
-																		<label class="col-xl-3 col-lg-3 col-form-label">
-																			* Prenume:
-																		</label>
-																		<div class="col-xl-9 col-lg-9">
-																			<input type="text" name="prenume" class="form-control m-input" placeholder="Popescu" value="">
-																			<span class="m-form__help">
-																				Prenumele persoanei sancţionate
-																			</span>
-																		</div>
-																	</div>
-                                                                    <div class="form-group m-form__group row">
-																		<label class="col-xl-3 col-lg-3 col-form-label">
-																			* Telefon
-																		</label>
-																		<div class="col-xl-9 col-lg-9">
-																			<div class="input-group">
-																				<div class="input-group-prepend">
-																					<span class="input-group-text">
-																						<i class="fas fa-phone-volume"></i>
-																					</span>
-																				</div>
-																				<input type="text" name="telefon" class="form-control m-input" placeholder="070123456" value="">
-																			</div>
-																			<span class="m-form__help">
-																				Numărul de telefon al persoanei sancţionate. E.g: 070123456
-																			</span>
-																		</div>
-																	</div>
-																	<div class="form-group m-form__group row">
-																		<label class="col-xl-3 col-lg-3 col-form-label">
-																			* Email:
-																		</label>
-																		<div class="col-xl-9 col-lg-9">
-																			<input type="email" name="e_mail" class="form-control m-input" placeholder="popescu.nicusor@gmail.com" value="">
-																			<span class="m-form__help">
-																				E-mail-ul persoanei sancţionate
-																			</span>
-																		</div>
-																	</div>
-                                                                    <div class="form-group m-form__group row">
-																		<label class="col-xl-3 col-lg-3 col-form-label">
-																			* Adresa procedurala:
-																		</label>
-																		<div class="col-xl-9 col-lg-9">
-																			<input type="text" name="adresa_procedurala" class="form-control m-input" placeholder="" value="">
-																			<span class="m-form__help">
-																				Adresa procedurala
-																			</span>
-																		</div>
-																	</div>
+                                                                    <p><b>{{ user.firstName }} {{ user.lastName }}</b></p>
+                                                                    <p><b>{{ user.email }}</b></p>
+                                                                    <p><b>{{ user.ci.series }} {{ user.ci.number }}</b></p>
+                                                                    <p><b>
+                                                                        {{ user.address.city }}, {{ user.address.street }}, {{ user.address.number }}
+                                                                        {{ user.address.block }}, {{ user.address.stair }}, {{ user.address.apartment }}, {{ user.address.county }}
+                                                                    </b></p>
 																</div>
 																<div class="m-separator m-separator--dashed m-separator--lg"></div>
 															</div>
