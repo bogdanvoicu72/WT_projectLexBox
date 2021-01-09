@@ -1,6 +1,7 @@
 import os
 import uuid
 
+from bson import ObjectId
 from docxtpl import DocxTemplate
 from flask import render_template
 from flask_jwt_extended import get_jwt_identity
@@ -46,7 +47,8 @@ def build_document_input(user, request_json):
 def generate_service(request_json, users, mail, minio_client, owner_email):
     try:
         doc = DocxTemplate("templates/request.docx")
-        user = users.find_one({"email": request_json['e_mail']})
+        user = users.find_one({"_id": ObjectId(request_json['uid'])})
+
         context = build_document_input(user, request_json)
         print(context)
         doc.render(context)

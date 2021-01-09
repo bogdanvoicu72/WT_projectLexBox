@@ -17,6 +17,6 @@ def login_service(request_form, users):
     if key == user["key"]:
         access_token = create_access_token(identity=request_form['email']),
         refresh_token = create_refresh_token(identity=request_form['email'])
-        return ResponseBuilder.success({"access_token": access_token, "refresh_token": refresh_token})
+        return ResponseBuilder.success({"access_token": access_token, "refresh_token": refresh_token, "uid": user['_id']})
     else:
         return ResponseBuilder.failure("Incorrect password", 401)

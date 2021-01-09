@@ -4,6 +4,7 @@ from controllers.insert.insert_service import insert_service
 from controllers.login.login_service import login_service
 from controllers.refresh.refresh_service import refresh_service
 from controllers.register.register_service import register_service
+from controllers.user_info.get_user_service import get_user_service
 
 
 class Controller:
@@ -29,4 +30,8 @@ class Controller:
 
     @staticmethod
     def insert(request_json, users, files, records, minio_client):
-        return insert_service(request_json, files, users, records, minio_client)
+        return insert_service(request_json, files, users, records, minio_client)\
+
+    @staticmethod
+    def user_info(request, users):
+        return get_user_service(request, users)

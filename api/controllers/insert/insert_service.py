@@ -1,6 +1,7 @@
 import os
 import uuid
 
+from bson import ObjectId
 from docxtpl import DocxTemplate
 from flask import render_template
 from flask_jwt_extended import get_jwt_identity
@@ -36,7 +37,6 @@ def build_record_output(request_json, filenames, user):
     result = dict(request_json)
     result['docx'] = request_json['docx']
     result['filenames'] = filenames
-    result['user_id'] = user
     result['status_dosar'] = 'new'
 
     return result
@@ -44,7 +44,7 @@ def build_record_output(request_json, filenames, user):
 
 def insert_service(request_json, files, users, records, minio_client):
     try:
-        user = users.find_one({"email": request_json['e_mail']})
+        user = users.find_one({"_id": ObjectId(request_json['uid'])})
         filenames = upload_files(files=files, user=user, minio_client=minio_client)
         result = build_record_output(request_json=request_json, filenames=filenames, user=user['_id'])
 
