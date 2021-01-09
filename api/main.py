@@ -42,5 +42,10 @@ def insert():
     return Controller.insert(request_json=request.form, files=request.files, users=users, records=records, minio_client=minio_client)
 
 
+@app.route('/user_info', methods=['POST'])
+def user_info():
+    return Controller.user_info(request=request.form, users=users)
+
+
 if __name__ == '__main__':
     app.run()
