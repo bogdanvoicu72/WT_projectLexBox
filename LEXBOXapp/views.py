@@ -1,6 +1,7 @@
 from bson import ObjectId
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
@@ -24,45 +25,22 @@ def home(request):
 # or whatever's the command on your machine
 # before running this.
 
-#doc = DocxTemplate(template_location)
-#doc.render(request.POST)
-#doc.save("generated_doc.docx")
 def cerere(request):
-    # if request.POST:
-    if request.method == "POST":
-        request_file = request.FILES['document'] if 'document' in request.FILES else None
-        if request_file:
-            fs = FileSystemStorage()
-            fs.save(request_file.name, request_file)
-            doc = DocxTemplate(template_location)
-            doc.render(request.POST)
-            doc.save("generated_doc.docx")
-    #request.post('http://127.0.0.1:5000/generate_document',request.POST ,json=json.dumps(request.post,indent=4))
+    print(request.session['user_access'])
+    if request.session['user_access']['success'] is True:
+        if request.method == "POST":
+            response = requests.post('http://127.0.0.1:5000/generate_document', request.POST)
 
-        # Doamna avocat va primi un mail de notificare cand se va completa o noua cerere
-        subject = "Ati primit o cerere noua"
-        # message = "O noua cerere a fost adougata in contul dumneavoastra!"
-        message = "<b>TEXT INPUTS:</b> \n\n"
-        message += "\n".join(str(request.POST).split(","))
-        message += "\n\n<b>FILE INPUTS:</b>\n\n"
-        message += "\n".join(str(request.FILES).split(","))
+            req = request.POST.copy()
+            req['docx'] = json.loads(response.text)['filename']
 
-        receipents = ["dan.tomoiu99@e-uvt.ro", "dodov1999@gmail.com", "iulia.hurloi99@e-uvt.ro"]
+            response2 = requests.post('http://127.0.0.1:5000/insert_record', req, files=request.FILES)
 
-        # uploaded_file = request.FILES['file'] # file is the name value which you have provided in form for file field
-
-        for recepient in receipents:
-            # send_mail(subject,message, EMAIL_HOST_USER, [recepient], fail_silently=False)
-            pass
-
-        request_data = json.dumps(request.POST)
-        req = requests.post(REST_API_URL, json=request_data)
-        print(request_data)
-        #print("from request: " + str(req))
-
-        return render(request, 'success_request.html', context={'data': request.POST})
+            return render(request, 'success_request.html', context={'data': request.POST})
+        else:
+            return render(request, 'wizard.html')
     else:
-        return render(request, 'wizard.html')
+        return redirect('/user_login')
 
 
 def parcare(request):
@@ -105,6 +83,7 @@ def user_login(request):    #pagina de Login pentru avocat sau utilizator
         result = requests.post("http://127.0.0.1:5000/login", request.POST)
 
         if result.status_code == 200:
+            request.session['user_access'] = result.json()
             return redirect('/Cerere')
 
     return render(request, 'user_login.html')
@@ -114,6 +93,9 @@ def user_signin(request):     #pagina de register pentru Utilizator
     if request.method == 'POST':
 
         result = requests.post("http://127.0.0.1:5000/register", request.POST)
+
+        if result.status_code == 200:
+            return redirect('/Cerere')
 
     return render(request, 'user_singin.html')
 
