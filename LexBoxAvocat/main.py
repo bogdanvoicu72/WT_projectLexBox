@@ -40,9 +40,13 @@ def login():
     else:
         return redirect('/')
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', cereri=cereri)
+    if request.method == 'GET':
+        return render_template('home.html', cereri=cereri)
+    else:
+        print(request.form['status'])
+        return '200'
 
 
 if __name__ == '__main__':

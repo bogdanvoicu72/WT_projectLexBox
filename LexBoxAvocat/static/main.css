@@ -3,3 +3,7 @@
     grid-template-columns: repeat(4, auto);
     gap: 10px;
 }
+
+.modal-backdrop {
+    background-color: rgba(0,0,0,.001) !important;
+}

@@ -5,8 +5,38 @@
     <title>Cereri</title>
     <link rel="stylesheet" href="../static/main.css?q=1280549780">
     <link rel="stylesheet" href="../static/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="modal" id="set_status" tabindex="-1" role="dialog" aria-labelledby="label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="label">Setare status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select class="custom-select" id="status" name="status">
+                            <option selected="">Alege noul status</option>
+                            <option value="noua">Noua</option>
+                            <option value="progres">In progres</option>
+                            <option value="terminata">Terminata</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anulare</button>
+                    <button type="submit" class="btn btn-primary">Salveaza</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <h3 class="navbar-brand" >LexBox</h3>
 </nav>
@@ -39,7 +69,7 @@
 
        {% if cerere.id % 2 == 1  %}
 
-<button type="button" class="btn btn-secondary btn-sm" >Seteaza status</button>
+<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#set_status" >Seteaza status</button>
     {% else %}
    <button type="button" class="btn btn-primary btn-sm" >Seteaza status</button>
         {% endif %}
