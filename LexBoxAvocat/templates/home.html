@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cereri</title>
+    <link rel="stylesheet" href="../static/main.css">
     <link rel="stylesheet" href="../static/bootstrap.css">
 </head>
 <body>
@@ -11,13 +12,13 @@
 </nav>
 <div class="jumbotron" >
     <h1 >Acestea sunt cererile dumneavoastra</h1>
-<div style="padding-top: 30px;">
+<div style="padding-top: 30px;" class="cardContainer">
     {% for cerere in cereri %}
     {% if cerere.id % 2 == 1  %}
 
 <div class="card text-white bg-primary mb-3" style="max-width: 20rem;" >
     {% else %}
-    <div class="card  bg-secondary mb-3" style="max-width: 20rem;" >
+    <div class="card bg-secondary mb-3" style="max-width: 20rem;" >
         {% endif %}
   <div class="card-header">
       Cerere
