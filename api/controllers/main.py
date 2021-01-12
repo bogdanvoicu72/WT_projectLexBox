@@ -1,7 +1,9 @@
 from controllers.confirmation.confirm_service import confirm_service
 from controllers.generation.generate_service import generate_service
 from controllers.insert.insert_service import insert_service
+from controllers.login.login_avocat_service import login_avocat_service
 from controllers.login.login_service import login_service
+from controllers.records.get_records_service import get_records_service
 from controllers.refresh.refresh_service import refresh_service
 from controllers.register.register_service import register_service
 from controllers.user_info.get_user_service import get_user_service
@@ -35,3 +37,11 @@ class Controller:
     @staticmethod
     def user_info(request, users):
         return get_user_service(request, users)
+
+    @staticmethod
+    def login_avocat(request, avocat):
+        return login_avocat_service(request, avocat)
+
+    @staticmethod
+    def get_records(request, records, users):
+        return get_records_service(request, records, users)
