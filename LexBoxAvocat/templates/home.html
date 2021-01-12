@@ -9,10 +9,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="modal" id="set_status" tabindex="-1" role="dialog" aria-labelledby="label" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form method="post">
+<div class="modal" id="set_status" tabindex="-1" role="dialog" aria-labelledby="label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="post">
                 <div class="modal-header">
                     <h5 class="modal-title" id="label">Setare status</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -33,51 +33,61 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Anulare</button>
                     <button type="submit" class="btn btn-primary">Salveaza</button>
                 </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <h3 class="navbar-brand" >LexBox</h3>
+    <h3 class="navbar-brand">LexBox</h3>
 </nav>
-<div class="jumbotron" >
-    <h1 >Acestea sunt cererile dumneavoastra</h1>
-<div style="padding-top: 30px;" class="cardContainer">
-    {% for cerere in cereri %}
-    {% if cerere.id % 2 == 1  %}
+<div class="jumbotron">
+    <h1>Acestea sunt cererile dumneavoastra</h1>
+    <div style="padding-top: 30px;" class="cardContainer">
+        {% for cerere in cereri %}
+            {% if cerere.id % 2 == 1 %}
 
-<div class="card text-white bg-primary mb-3" style="max-width: 20rem;" >
-    {% else %}
-    <div class="card bg-secondary mb-3" style="max-width: 20rem;" >
-        {% endif %}
-  <div class="card-header">
-      Cerere
-      <div style="float: right;">
-          {% if cerere.status == 'noua' %}
-          <span class="badge badge-pill badge-info">Noua</span>
-    {% elif cerere.status == 'progres' %}
-         <span class="badge badge-pill badge-warning">In procesare</span>
-     {% else  %}
-         <span class="badge badge-pill badge-success">Terminata</span>
-     {% endif %}
-      </div>
-  </div>
-  <div class="card-body">
-    <h4 class="card-title">{{cerere.nume}}</h4>
-    <p class="card-text">Inspectorat: {{cerere.inspectorat}}</p>
-    <p class="card-text">Data: {{cerere.data}}</p>
-
-       {% if cerere.id % 2 == 1  %}
-
-<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#set_status" >Seteaza status</button>
-    {% else %}
-   <button type="button" class="btn btn-primary btn-sm" >Seteaza status</button>
-        {% endif %}
-      <button type="button" class="btn btn-danger btn-sm">Refuza cererea</button>
-  </div>
-</div>
-{% endfor %}
-</div>
-</div>
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            {% else %}
+                <div class="card bg-secondary mb-3" style="max-width: 20rem;">
+            {% endif %}
+        <div class="card-header">
+            Cerere
+            <div style="float: right;">
+                {% if cerere.status == 'new' %}
+                    <span class="badge badge-pill badge-info">Noua</span>
+                {% elif cerere.status == 'progress' %}
+                    <span class="badge badge-pill badge-warning">In procesare</span>
+                {% else %}
+                    <span class="badge badge-pill badge-success">Terminata</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{ cerere.nume }}</h4>
+            <p class="card-text">Inspectorat: {{ cerere.inspectorat }}</p>
+            <p class="card-text">Data: {{ cerere.data }}</p>
+            {% if cerere.id % 2 == 1 %}
+                <p class="card-text">
+                    <a href="{{ cerere.docx }}" style="color: white" download>Docx</a>
+                    {% for file in cerere.files %}
+                        <a href="{{ file.link }}" style="color: white" download>{{ file.filename }}</a>
+                    {% endfor %}
+                </p>
+                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#set_status">
+                    Seteaza status
+                </button>
+            {% else %}
+                <p class="card-text"><a href="{{ cerere.docx }}" style="color: black" download>Docx</a></p>
+                {% for file in cerere.files %}
+                    <a href="{{ file.link }}" style="color: black" download>{{ file.filename }}</a>
+                {% endfor %}
+                <button type="button" class="btn btn-primary btn-sm">Seteaza status</button>
+            {% endif %}
+            <button type="button" class="btn btn-danger btn-sm">Refuza cererea</button>
+        </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

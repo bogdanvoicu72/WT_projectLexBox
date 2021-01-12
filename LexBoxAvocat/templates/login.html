@@ -12,22 +12,22 @@
 
 <div class="jumbotron">
   <h1 class="display-3">Bun venit la LexBox!</h1>
-    <form method="post">
+    <form method="POST" action="/login">
 
-  <fieldset>
-    <legend>Autentificare</legend>
-    <div class="form-group">
-      <label for="email">Adresa de email</label>
-      <input type="email" class="form-control" id="email"  placeholder="Introducere email">
+      <fieldset>
+        <legend>Autentificare</legend>
+        <div class="form-group">
+          <label for="email">Adresa de email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Introducere email">
 
-    </div>
-    <div class="form-group">
-      <label for="password">Parola</label>
-      <input type="password" class="form-control" id="password" placeholder="Parola">
-    </div>
-    <button type="submit" class="btn btn-primary">Trimite</button>
-  </fieldset>
-</form>
+        </div>
+        <div class="form-group">
+          <label for="password">Parola</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Parola">
+        </div>
+        <button type="submit" class="btn btn-primary">Trimite</button>
+      </fieldset>
+    </form>
 </div>
 
 </body>
