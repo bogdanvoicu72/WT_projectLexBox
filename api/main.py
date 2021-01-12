@@ -6,7 +6,7 @@ from flask_jwt_extended import (
 from config.setup import setup
 from controllers.main import Controller
 
-app, mail, jwt, users, records, minio_client, owner_email = setup()
+app, mail, jwt, users, records, avocat, minio_client, owner_email = setup()
 
 
 @app.route('/login', methods=['POST'])
@@ -45,6 +45,16 @@ def insert():
 @app.route('/user_info', methods=['POST'])
 def user_info():
     return Controller.user_info(request=request.form, users=users)
+
+
+@app.route('/login_avocat', methods=['POST'])
+def login_avocat():
+    return Controller.login_avocat(request=request.form, avocat=avocat)
+
+
+@app.route('/get_records', methods=['POST'])
+def get_records():
+    return Controller.get_records(request=request.form, records=records, users=users)
 
 
 if __name__ == '__main__':
