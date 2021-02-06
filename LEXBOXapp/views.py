@@ -21,6 +21,10 @@ def home(request):
     return render(request, 'home.html')
 
 
+def cerere_test(request):
+    return render(request,'cerere_test.html')
+
+
 # Be sure to run `python3 manage.py collectstatic`
 # or whatever's the command on your machine
 # before running this.

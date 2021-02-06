@@ -13,4 +13,5 @@ urlpatterns = [
     path('user_page',views.user_page,name='user_page'),
     path('user_login',views.user_login,name='user_login'),
     path('user_singin', views.user_signin, name='user_singin'),
+    path('cerere_test',views.cerere_test, name = 'cerere_test'),
 ]

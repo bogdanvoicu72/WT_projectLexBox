@@ -1,0 +1,1241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<!-- begin::Head -->
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Metronic | Form Wizard 1
+    </title>
+
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup {
+            display: none;
+            position: center;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+            background: #fff1f1;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom:10px;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+            opacity: 1;
+        }
+
+
+        .form-popupInstitutii {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+
+
+        .show{
+            display: none;
+
+        }
+    </style>
+
+    <meta name="description" content="Form wizard examples">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--begin::Web font -->
+    <script src="https://kit.fontawesome.com/c10f21a92b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+        WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+
+    </script>
+    <!--end::Web font -->
+    <!--begin::Base Styles -->
+    <link href="{% static 'vendors.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'style.bundle.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+<body  class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+
+    <!-- begin::Body -->
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+
+        <div class="m-grid__item m-grid__item--fluid m-wrapper">
+            <!-- BEGIN: Subheader -->
+            <div class="m-subheader ">
+                <div class="">
+                    <div class="row">
+                        <div class="col-xl-2"></div>
+                        <div class="col-xl-8">
+                            <h3 class="m-subheader__title m-subheader__title--separator" align="center">
+                                Cerere plangere contraventionala
+                            </h3>
+                        </div>
+                        <div class="col-xl-2"></div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END: Subheader -->
+            <div class="m-content">
+                <div class="row">
+                    <div class="col-xl-2"></div>
+                    <div class="col-xl-8">
+                        <!--Begin::Main Portlet-->
+                        <div class="m-portlet">
+                            <!--begin: Portlet Head-->
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Pasul 1
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Portlet Head-->
+                            <!--begin: Form Wizard-->
+                            <div class="m-wizard m-wizard--1 m-wizard--success" id="m_wizard">
+                                <!--begin: Message container -->
+                                <div class="m-portlet__padding-x">
+                                    <!-- Here you can put a message or alert -->
+                                </div>
+                                <!--end: Message container -->
+                                <!--begin: Form Wizard Head -->
+                                <div class="m-wizard__head m-portlet__padding-x">
+                                    <!--begin: Form Wizard Progress -->
+                                    <div class="m-wizard__progress">
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <!--end: Form Wizard Progress -->
+                                    <!--begin: Form Wizard Nav -->
+                                    <div class="m-wizard__nav">
+                                        <div class="m-wizard__steps">
+                                            <div class="m-wizard__step m-wizard__step--current" m-wizard-target="m_wizard_form_step_1">
+                                                <div class="m-wizard__step-info">
+                                                    <a href="#" class="m-wizard__step-number">
+																<span>
+																	<span>
+																		1
+																	</span>
+																</span>
+                                                    </a>
+                                                    <div class="m-wizard__step-line">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="m-wizard__step-label">
+                                                        Informatii petent
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-wizard__step" m-wizard-target="m_wizard_form_step_2">
+                                                <div class="m-wizard__step-info">
+                                                    <a href="#" class="m-wizard__step-number">
+																<span>
+																	<span>
+																		2
+																	</span>
+																</span>
+                                                    </a>
+                                                    <div class="m-wizard__step-line">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="m-wizard__step-label">
+                                                        Informatii 2
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-wizard__step" m-wizard-target="m_wizard_form_step_3">
+                                                <div class="m-wizard__step-info">
+                                                    <a href="#" class="m-wizard__step-number">
+																<span>
+																	<span>
+																		3
+																	</span>
+																</span>
+                                                    </a>
+                                                    <div class="m-wizard__step-line">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="m-wizard__step-label">
+                                                        Informatii 3
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-wizard__step" m-wizard-target="m_wizard_form_step_4">
+                                                <div class="m-wizard__step-info">
+                                                    <a href="#" class="m-wizard__step-number">
+																<span>
+																	<span>
+																		4
+																	</span>
+																</span>
+                                                    </a>
+                                                    <div class="m-wizard__step-line">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="m-wizard__step-label">
+                                                        Final
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end: Form Wizard Nav -->
+                                </div>
+                                <!--end: Form Wizard Head -->
+                                <!--begin: Form Wizard Form-->
+                                <div class="m-wizard__form">
+                                    <!--
+                1) Use m-form--label-align-left class to alight the form input lables to the right
+                2) Use m-form--state class to highlight input control borders on form validation
+            -->
+                                    <form class="m-form m-form--label-align-left- m-form--state-" id="m_form" method="post" action="/Cerere" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <!--begin: Form Body -->
+                                        <div class="m-portlet__body">
+                                            <!--begin: Form Wizard Step 1-->
+                                            <div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
+                                                <div class="row">
+                                                    < class="col-xl-8 offset-xl-2">
+                                                        <div class="m-form__section m-form__section--first">
+                                                            <div class="m-form__heading">
+                                                                <h3 class="m-form__heading-title">
+                                                                    Datele persoanei sancţionate
+                                                                </h3>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Nume:</div>
+                                                                <div class="col-xl-10" contenteditable="true"><b contenteditable="true">{{ user.firstName }} {{ user.lastName }}</b></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Email:</div>
+                                                                <div class="col-xl-10"><b>{{ user.email }}</b></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Serie CI:</div>
+                                                                <div class="col-xl-10"><b>{{ user.ci.series }} {{ user.ci.number }}</b></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Oras:</div>
+                                                                <div class="col-xl-10"><b>{{ user.address.city }}</b></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Strada:</div>
+                                                                <div class="col-xl-10"><b>{{ user.address.street }}</b></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Numar:</div>
+                                                                <div class="col-xl-10"><b>{{ user.address.number }}</b></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Bloc:</div>
+                                                                {% if user.address.block %}
+                                                                    <div class="col-xl-10"><b>{{ user.address.block }}</b></div>
+                                                                {% else %}
+                                                                    <div class="col-xl-10"><b>-</b></div>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Scara:</div>
+                                                                {% if user.address.block %}
+                                                                    <div class="col-xl-10"><b>{{ user.address.stair }}</b></div>
+                                                                {% else %}
+                                                                    <div class="col-xl-10"><b>-</b></div>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Apartament:</div>
+                                                                {% if user.address.block %}
+                                                                    <div class="col-xl-10"><b>{{ user.address.apartment }}</b></div>
+                                                                {% else %}
+                                                                    <div class="col-xl-10"><b>-</b></div>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-2">Judet:</div>
+                                                                <div class="col-xl-10"><b>{{ user.address.county }}</b></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="m-separator m-separator--dashed m-separator--lg"></div>
+
+
+                                                        <button class="open-button" onclick="openForm()">Open Form</button>
+
+
+                                                        <div class="form-popup" id="myForm">
+                                                            <form  class="form-container">
+                                                                <h1>Va rog verificati-va datele personale</h1>
+                                                                <p>Daca datele sunt corecte va rog apasati pe continuati daca nu revizuitile apasand pe butonul "EDIT"</p>
+
+                                                                <h1>Login</h1>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Nume:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.firstName }} {{ user.lastName }}</b></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Email:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.email }}</b></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Serie CI:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.ci.series }} {{ user.ci.number }}</b></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Oras:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.address.city }}</b></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Strada:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.address.street }}</b></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Numar:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.address.number }}</b></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Bloc:</div>
+                                                                    {% if user.address.block %}
+                                                                        <div class="col-xl-10"><b>{{ user.address.block }}</b></div>
+                                                                    {% else %}
+                                                                        <div class="col-xl-10"><b>-</b></div>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Scara:</div>
+                                                                    {% if user.address.block %}
+                                                                        <div class="col-xl-10"><b>{{ user.address.stair }}</b></div>
+                                                                    {% else %}
+                                                                        <div class="col-xl-10"><b>-</b></div>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Apartament:</div>
+                                                                    {% if user.address.block %}
+                                                                        <div class="col-xl-10"><b>{{ user.address.apartment }}</b></div>
+                                                                    {% else %}
+                                                                        <div class="col-xl-10"><b>-</b></div>
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-xl-2">Judet:</div>
+                                                                    <div class="col-xl-10"><b>{{ user.address.county }}</b></div>
+                                                                </div>
+
+                                                                <button type="button" class="btn edit" onclick="openFormEdit()">Editati</button>
+                                                                <button type="button" class="btn cancel" onclick="closeForm()">Continuati</button>
+                                                            </form>
+
+                                                            <div class="form-popup" id="myFormEdit">
+                                                                <form  class="form-container">
+
+                                                                    <h1>Va rog recompletati toate datele</h1>
+
+                                                                    <label>Nume</label> <input>
+                                                                    <label>Prenume</label> <input>
+                                                                    <label>Email</label> <input>
+                                                                    <label>Seria</label> <input>
+                                                                    <label>Nr</label> <input>
+                                                                    <label>Oras</label> <input>
+                                                                    <label>Strada</label> <input>
+                                                                    <label>Numar</label> <input>
+                                                                    <label>Scara</label> <input>
+                                                                    <label>Apartament</label> <input>
+                                                                    <label>Bloc</label> <input>
+                                                                    <label>Judet</label> <input>
+                                                                    <button type="button" class="btn edit" onclick="closeForm()">Termina edit</button>
+
+                                                                </form>
+                                                            </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end: Form Wizard Step 1-->
+                                            <!--begin: Form Wizard Step 2-->
+                                            <div class="m-wizard__form-step" id="m_wizard_form_step_2">
+                                                <div class="row">
+                                                    <div class="col-xl-8 offset-xl-2">
+                                                        <div class="m-form__section m-form__section--first">
+                                                            <div class="m-form__heading">
+                                                                <h3 class="m-form__heading-title">
+                                                                    Detalii agent constatator
+                                                                </h3>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Nume:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="nume_agent" class="form-control m-input" placeholder="Nicusor" value="">
+                                                                    <span class="m-form__help">
+																				Numele agentului constatator
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Prenume:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="prenume_agent" class="form-control m-input" placeholder="Popescu" value="">
+                                                                    <span class="m-form__help">
+																				Prenumele agentului constatator
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Calitatea:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="calitate_agent" class="form-control m-input" placeholder="Calitate" value="">
+                                                                    <span class="m-form__help">
+																				Calitatea agentului constatator
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Institutia:
+                                                                </label>
+                                                                <select name="sectii de politie">
+                                                                    <option>Sectia 1</option>
+                                                                    <option>Sectia 2</option>
+                                                                    <option>Sectia 3</option>
+
+                                                                </select>
+                                                            </div>
+                                                                <br>
+                                                                <br>
+                                                                <div class="form-group m-form__group row">
+                                                                <p>Daca institutia nu se afla in optiuni va rog adaugati-o manual</p>
+
+                                                                <form method="POST" id="formulario">
+                                                                        <div class="col-xl-9 col-lg-9">
+                                                                        <input type="button" value="Adauga institutie" onClick="openInstitutii();">
+                                                                        </div>
+                                                                </form>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Orasul:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="accused_city" class="form-control m-input" placeholder="Orasul" value="">
+                                                                    <span class="m-form__help">
+																				Orasul
+																			</span>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Strada:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="accused_street" class="form-control m-input" placeholder="Strada" value="">
+                                                                    <span class="m-form__help">
+																				Strada
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Numar:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="accused_number" class="form-control m-input" placeholder="Numar" value="">
+                                                                    <span class="m-form__help">
+																				Numar
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Numar de telefon:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="number" name="accused_phone" class="form-control m-input" placeholder="Numar de telefon" value="">
+                                                                    <span class="m-form__help">
+																				Numar de telefon
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Email Institutie:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="accused_email" class="form-control m-input" placeholder="Email" value="">
+                                                                    <span class="m-form__help">
+																				Email Institutie
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Judet:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="accused_judet" class="form-control m-input" placeholder="Judet" value="">
+                                                                    <span class="m-form__help">
+																				Judet
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                                        <div class="m-form__section">
+                                                            <div class="m-form__heading">
+                                                                <h3 class="m-form__heading-title">
+                                                                    Detalii 2
+                                                                </h3>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Locul savarsirii contraventiei:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="locul_savarsirii_contraventiei" class="form-control m-input" placeholder="Locul savarsirii contraventiei" value="">
+                                                                    <span class="m-form__help">
+																				Locul savarsirii contraventiei
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Sunteti in posesia procesului verbal?
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <div class="m-radio-inline">
+                                                                        <div class="m-radio-inline">
+                                                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                                                <input type="radio" name="in_posesie"  value="1">
+                                                                                Da
+                                                                                <span></span>
+                                                                            </label>
+                                                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                                                <input type="radio" name="in_posesie" value="0">
+                                                                                Nu
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <p>Daca sunteti in posesia proceslui va rog completati si urmatoarele date</p>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Seria Procesului:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="record_series" class="form-control m-input" placeholder="Seria Proceslui" value="">
+                                                                    <span class="m-form__help">
+                                                                                Seria Procesului
+                                                                            </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Numarul Procesului:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="record_number" class="form-control m-input" placeholder="Numarul Proceslui" value="">
+                                                                    <span class="m-form__help">
+                                                                                Numarul Procesului
+                                                                            </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Data Procesului:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="date" name="record_date" class="form-control m-input" placeholder="Data Proceslui" value="">
+                                                                    <span class="m-form__help">
+                                                                                Data Procesului
+                                                                            </span>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Comunicatul Procesului:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="record_communication" class="form-control m-input" placeholder="Comunicatul Proceslui" value="">
+                                                                    <span class="m-form__help">
+                                                                                Comunicatul Procesului
+                                                                            </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end: Form Wizard Step 2-->
+                                            <!--begin: Form Wizard Step 3-->
+                                            <div class="m-wizard__form-step" id="m_wizard_form_step_3">
+                                                <div class="row">
+                                                    <div class="col-xl-8 offset-xl-2">
+                                                        <div class="m-form__section m-form__section--first">
+                                                            <div class="m-form__heading">
+                                                                <h3 class="m-form__heading-title">
+                                                                    Detalii 3
+                                                                </h3>
+                                                                <div class="form-group m-form__group row">
+                                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                        * Cum ati intrat in posesia procesului verba?
+                                                                    </label>
+                                                                    <div class="col-xl-9 col-lg-9">
+                                                                        <div class="m-radio-inline">
+                                                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                                                <input type="radio" name="posesia"  value="1">
+                                                                                Prin inmanarea la fata locului
+                                                                                <span></span>
+                                                                            </label>
+                                                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                                                <input type="radio" name="posesia" value="2">
+                                                                                Prin posta
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <span class="m-form__help">
+																					Selectati una dintre optiuni
+																				</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Data savarsirii faptei
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type ="date" name = "data_savarsirii_faptei" class = "form-control" id = "data-savarsii-faptei" aria-describedby="numeHelp" placeholder="Data savarsirii faptei">
+                                                                    <span class="m-form__help">
+																				Selectati data
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Ati platit amenda instituita prin procesul verbal?
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="amenda_platita"  value="1">
+                                                                            Da
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="amenda_platita" value="2">
+                                                                            Nu
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">Valoarea amenzii</label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="valoarea_amenzii" class="form-control m-input" placeholder="Valoarea amenzii" value="">
+                                                                    <span class="m-form__help">
+																				Valoarea amenzii
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Ati platit amenda instituita prin procesul verbal?
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="dorinta_amenda"  value="1">
+                                                                            Doresc anularea amenzi pentru că sunt nevinovat iar amenda este abuzivă. Am documente şi martori care să ateste nevinovaţia mea
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="dorinta_amenda" value="2">
+                                                                            Doresc preschimbarea amenzii în avertisment pentru că deşi sunt vinovat, sunt la prima abatere contravenţională.
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="dorinta_amenda" value="3">
+                                                                            Doresc reducerea cuantumului amenzii pentru că amenda primită reprezintă maximul din cât mi se putea aplica sau este disproporţionată în raport de veniturile mele
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    Vă rugăm să prezentaţi situaţia descrisă din procesul verbal
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <textarea class="form-control m-input" name="situatia_proces_verbal" id="exampleFormControlTextarea1" rows="10" cols="50"></textarea>
+                                                                    <span class="m-form__help">
+																				Descrieti situatia
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    Vă rugăm să prezentaţi situaţia de fapt din punctul dumneavoastră de vedere, mai ales dacă e diferită de de cea prezentată de agentul constatator
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <textarea class="form-control m-input" name="situatia_descrisa_personal" id="exampleFormControlTextarea1" rows="10" cols="50"></textarea>
+                                                                    <span class="m-form__help">
+																				Descrieti situatia
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                                            <div class="m-form__heading">
+                                                                <h4 class="m-form__heading-title">
+                                                                    Vă rugăm să completaţi articolele şi norma legală din procesul verbal cu privire la fapta comisă
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Articolul:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="articolul_lege" class="form-control m-input" placeholder="Articolul" value="">
+                                                                    <span class="m-form__help">
+																				Articolul din lege
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Alineatul:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="alineatul_lege" class="form-control m-input" placeholder="Alineatul" value="">
+                                                                    <span class="m-form__help">
+																				Alineatul din lege
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Norma legală în care sunt prevăzute faptele contravenţionale:
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <input type="text" name="norma_legala" class="form-control m-input" placeholder="Norma legala" value="">
+                                                                    <span class="m-form__help">
+																				Norma legală în care sunt prevăzute faptele contravenţionale
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Aveţi martori care să fie audiaţi de instanţa de judecată şi care sunt pregatiţi să vă probeze nevinovaţia?
+
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" onclick="addElements()" name="martori"  value="1" id="showText" onclick="showText(1)">
+                                                                            Da
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="martori"  value="2">
+                                                                            Nu
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group m-form__group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                                                    * Cu ce alte documente vă puteţi apăra în faţa instanţei de judecată?
+                                                                </label>
+                                                                <div class="col-xl-9 col-lg-9">
+                                                                    <div class="m-radio-inline">
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="alte_doc"  value="1">
+                                                                            Adeverinţă de venit/talon de pensie
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="alte_doc" value="2">
+                                                                            Adeverinţă medicală
+                                                                            <span></span>
+                                                                        </label>
+                                                                        <label class="m-radio m-radio--solid m-radio--brand">
+                                                                            <input type="radio" name="alte_doc" value="3">
+                                                                            Alte documente
+                                                                            <span></span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <span class="m-form__help">
+																				Selectati una dintre optiuni
+																			</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end: Form Wizard Step 3-->
+                                        <!--begin: Form Wizard Step 4-->
+                                        <div class="m-wizard__form-step" id="m_wizard_form_step_4">
+                                            <div class="row">
+                                                <div class="col-xl-8 offset-xl-2">
+                                                    <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                                    <div class="m-form__heading">
+                                                        <h3 class="m-form__heading-title">
+                                                            Vă rugăm să încărcaţi documentele AICI. Dacă nu le puteţi încărca în formular, ni le puteţi trimite separat pe adresa de email ….
+                                                        </h3>
+                                                    </div>
+                                                    <!--<div class="form-group m-form__group row">
+                                                        <label class="col-form-label col-lg-3 col-sm-12">
+                                                            Carte de identitate
+                                                        </label>
+                                                        <div class="col-lg-4 col-md-9 col-sm-12">
+                                                            <div class="m-dropzone dropzone m-dropzone--success" action="inc/api/dropzone/upload.php" id="m-dropzone-three">
+                                                                <div class="m-dropzone__msg dz-message needsclick">
+                                                                    <h3 class="m-dropzone__msg-title">
+                                                                        Trageti fisierele aici sau apasati click
+                                                                    </h3>
+                                                                    <span class="m-dropzone__msg-desc">
+                                                                        Doar imagini sau pdf
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>-->
+                                                    <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            Carte de identitate
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <input class="form-control m-input" type="file" name="carte_de_identitate" id="inputGroupFile01">
+                                                            <span class="m-form__help">Fisier imagine sau pdf</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            Proces verbal de contraventie
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <input class="form-control m-input" type="file" name="imagine_proces_verbal" id="inputGroupFile02">
+                                                            <span class="m-form__help">Fisier imagine sau pdf</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            Chitanta plata amenda
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <input class="form-control m-input" type="file" name="imagine_chitanta_plata" id="inputGroupFile03">
+                                                            <span class="m-form__help">Fisier imagine sau pdf</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            Orice alt document necesar- ex copii buletine martori, adeverinţe de venit, medicale, etc
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <input class="form-control m-input" type="file" name="imagine_orice_alta_imagine" id="inputGroupFile04" multiple>
+                                                            <span class="m-form__help">Fisier imagine sau pdf</span>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            * Doriţi să vă prezentaţi la sedinţele de judecată sau doriţi judecarea cererii în lipsă?
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <div class="m-radio-inline">
+                                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                                    <input type="radio" name="particip"  value="1">
+                                                                    Doresc să particip la şedinţele de judecată
+                                                                    <span></span>
+                                                                </label>
+                                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                                    <input type="radio" name="particip" value="2">
+                                                                    Doresc judecarea cererii de chemare în judecată în lipsa mea
+                                                                    <span></span>
+                                                                </label><p>(chiar daca ati solicitat judecarea cererii in lipsa, trebuie sa raspundeti la solicitarile ulterioare la instantei de judecata (citatii) pentru a evita suspendarea procesului si perimarea cererii)</p>
+                                                            </div>
+                                                            <span class="m-form__help">
+                                                                                Selectati una dintre optiuni
+                                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            * Doriţi să fiţi asistat de un avocat în sala de judecată?
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <div class="m-radio-inline">
+                                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                                    <input type="radio" name="asistat_avocat"  value="1">
+                                                                    Da
+                                                                    <span></span>
+                                                                </label>
+                                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                                    <input type="radio" name="asistat_avocat" value="2">
+                                                                    Nu
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                            <span class="m-form__help">
+                                                                                Selectati una dintre optiuni
+                                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group m-form__group--sm row">
+                                                        <div class="col-xl-12">
+                                                            <div class="m-checkbox-inline">
+                                                                <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                                                    <input type="checkbox" name="accept" value="1">
+                                                                    Menţionez că am citit şi sunt de acord cu termenii şi condiţiile prezentei aplicaţii
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end: Form Wizard Step 4-->
+
+                                        <!--end: Form Body -->
+                                        <!--begin: Form Actions -->
+                                        <div class="m-portlet__foot m-portlet__foot--fit m--margin-top-40">
+                                            <div class="m-form__actions m-form__actions">
+                                                <div class="row">
+                                                    <div class="col-lg-2"></div>
+                                                    <div class="col-lg-4 m--align-left">
+                                                        <a href="#" class="btn btn-secondary m-btn m-btn--custom m-btn--icon" data-wizard-action="prev">
+																	<span>
+																		<i class="fas fa-arrow-left"></i>
+																		&nbsp;&nbsp;
+																		<span>
+																			Back
+																		</span>
+																	</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-lg-4 m--align-right">
+                                                        <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+																	<span>
+																		<i class="fas fa-check"></i>
+																		&nbsp;&nbsp;
+																		<span>
+																			Trimite
+																		</span>
+																	</span>
+                                                        </a>
+                                                        <a href="#" class="btn btn-warning m-btn m-btn--custom m-btn--icon" data-wizard-action="next">
+																	<span>
+																		<span>
+																			Continua
+																		</span>
+																		&nbsp;&nbsp;
+																		<i class="fas fa-arrow-right"></i>
+																	</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-lg-2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end: Form Actions -->
+                                    </form>
+                                </div>
+                                <!--end: Form Wizard Form-->
+                            </div>
+                            <!--end: Form Wizard-->
+                        </div>
+                        <!--End::Main Portlet-->
+                    </div>
+                    <div class="col-xl-2">
+                        <!--<div class="m-portlet">
+                            <div class="m-portlet__body">
+                                <div class="m-section">
+                                    <h2 class="m-section__heading">
+                                        OUG 3/2001
+                                    </h2>
+                                    <div class="m-section__content">
+                                        <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        </p>
+                                        <p>
+                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="m-separator m-separator--fit"></div>
+
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Body -->
+</div>
+<!-- end:: Page -->
+
+<script src="{% static 'vendors.bundle.js' %}" type="text/javascript"></script>
+<script src="{% static 'scripts.bundle.js' %}" type="text/javascript"></script>
+<!--end::Base Scripts -->
+<!--begin::Page Resources -->
+<script src="{% static 'wizard.js' %}" type="text/javascript"></script>
+<script src="{% static 'dropzone.js' %}" type="text/javascript"></script>
+
+<script>
+
+    function openInstitutii(){
+
+            var newdiv = document.createElement('div')
+            newdiv.innerHTML = "Institutia  <br><input type='text' name='myInputs[]' class=\"form-control m-input\" placeholder=\"Institutie\" >";
+            document.getElementById('formulario').appendChild(newdiv);
+
+    }
+
+    function openFormEdit(){
+        document.getElementById("myFormEdit").style.display =  "block";
+    }
+
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    function proces(){
+        var label_nume = document.createElement("LABEL");
+        var label_nume_seria ="Seria Procesului";
+        label_nume.innerHTML = label_nume_seria;
+
+        var record_series = document.createElement("INPUT");
+        record_series.setAttribute("type", "text");
+        document.body.appendChild(record_series);
+
+
+        var label_nume_number = document.createElement("LABEL");
+        var label_nume_numar ="Numarul Procesului";
+        label_nume_number.innerHTML = label_nume_numar;
+
+        var record_number = document.createElement("INPUT");
+        record_number.setAttribute("type", "text");
+        document.body.appendChild(record_number);
+
+
+        var label_nume_date = document.createElement("LABEL");
+        var label_nume_data ="Data Procesului";
+        label_nume_date.innerHTML = label_nume_data;
+
+        var record_date = document.createElement("INPUT");
+        record_date.setAttribute("type", "text");
+        document.body.appendChild(record_date);
+
+
+
+
+        var label_communication = document.createElement("LABEL");
+        var label_nume_comunicat ="Comunicatul procesului Procesului";
+        label_communication.innerHTML = label_nume_comunicat;
+
+        var record_communication = document.createElement("INPUT");
+        record_communication.setAttribute("type", "text");
+        document.body.appendChild(record_communication);
+
+
+
+    }
+    function addElements(){
+
+        var label_nume = document.createElement("LABEL");
+        var label_nume_val = "Numele Martorului:";
+        label_nume.innerHTML = label_nume_val;
+        document.body.appendChild(label_nume);
+
+
+        var nume = document.createElement("INPUT");
+        nume.setAttribute("type", "text");
+        document.body.appendChild(nume);
+
+        var label_prenume = document.createElement("LABEL");
+        var label_prenume_val = "Prenumele Martorului:";
+        label_prenume.innerHTML = label_prenume_val;
+        document.body.appendChild(label_prenume);
+
+
+        var prenume = document.createElement("INPUT");
+        prenume.setAttribute("type", "text");
+        document.body.appendChild(prenume);
+
+        var label_adresa = document.createElement("LABEL");
+        var label_adresa_val = "Adresa:";
+        label_adresa.innerHTML = label_adresa_val;
+        document.body.appendChild(label_adresa);
+
+        var adresa = document.createElement("INPUT");
+        prenume.setAttribute("type", "text");
+        document.body.appendChild(adresa);
+
+        var btn = document.createElement("BUTTON");
+        btn.id = "adaugaom";
+        btn.innerHTML = "Adaugati inca un martor";
+        btn.onclick = function(){
+            var label_nume = document.createElement("LABEL");
+            var label_nume_val = "Numele Martorului:";
+            label_nume.innerHTML = label_nume_val;
+            document.body.appendChild(label_nume);
+
+
+            var nume = document.createElement("INPUT");
+            nume.setAttribute("type", "text");
+            document.body.appendChild(nume);
+
+            var label_prenume = document.createElement("LABEL");
+            var label_prenume_val = "Prenumele Martorului:";
+            label_prenume.innerHTML = label_prenume_val;
+            document.body.appendChild(label_prenume);
+
+
+            var prenume = document.createElement("INPUT");
+            prenume.setAttribute("type", "text");
+            document.body.appendChild(prenume);
+
+            var label_adresa = document.createElement("LABEL");
+            var label_adresa_val = "Adresa:";
+            label_adresa.innerHTML = label_adresa_val;
+            document.body.appendChild(label_adresa);
+
+            var adresa = document.createElement("INPUT");
+            prenume.setAttribute("type", "text");
+            document.body.appendChild(adresa);
+
+        }
+        document.body.appendChild(btn);
+    }
+
+
+</script>
+
+
+</body>
+<!-- end::Body -->
+</html>
