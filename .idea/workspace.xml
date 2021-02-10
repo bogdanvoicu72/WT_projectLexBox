@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f21f89d-14a3-4e02-85f5-48e5d1ed0348" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/Activate.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/activate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/activate.csh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/activate.fish" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/chardetect" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/django-admin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/django-admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/easy_install" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/easy_install-3.8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/flask" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/pip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/pip3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/pip3.8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/python" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/python3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/bin/sqlformat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/pyvenv.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOX/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/migrations/0002_auto_20201209_1228.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/data/data_template.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/dropzone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/lexbox/bootstrap/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/lexbox/bootstrap/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/scripts.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/style.bundle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/vendors.bundle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/vendors.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/static/wizard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LEXBOXapp/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexBoxAvocat/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/AvocatView/Avocat_View.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Cerere.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/avo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/info_avo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/success_request.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_singin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/wizard.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="eb40d7ea-7a0d-45ee-8bd7-c0ab13ca906f" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1o4LPpL1dnUwvlFozYUzLcfozCB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f21f89d-14a3-4e02-85f5-48e5d1ed0348" name="Default Changelist" comment="" />
+      <created>1612540895687</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612540895687</updated>
+      <workItem from="1612540897136" duration="838000" />
+      <workItem from="1612563414466" duration="1100000" />
+      <workItem from="1612598283647" duration="612000" />
+      <workItem from="1612948588279" duration="829000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="240" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612948868912">
+      <screen x="0" y="25" width="1440" height="818" />
+    </state>
+    <state x="449" y="240" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1440.818/1440.25.1920.1055@0.25.1440.818" timestamp="1612948868912" />
+  </component>
+</project>
