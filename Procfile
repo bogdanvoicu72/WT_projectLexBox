@@ -1,1 +1,1 @@
-web: gunicorn LEXBOX.wsgi --log-file -
+web: gunicorn LEXBOX.wsgi
