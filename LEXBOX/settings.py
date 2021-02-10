@@ -51,6 +51,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
+
 ROOT_URLCONF = 'LEXBOX.urls'
 
 TEMPLATES = [
@@ -138,6 +144,9 @@ STATICFILES_DIRS = [
     # Document template goes here
     os.path.join(BASE_DIR, 'static', 'home.html', 'DocumentTemplate')
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media directory in the root directory 
 MEDIA_URL = '/media/'
