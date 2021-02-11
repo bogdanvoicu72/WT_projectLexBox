@@ -125,11 +125,11 @@ USE_L10N = True
 USE_TZ = True
 
 
-MIDDLEWARE_CLASSES = (
+#MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-)
+ #   'whitenoise.middleware.WhiteNoiseMiddleware',
+#)
 
 
 # Static files (CSS, JavaScript, Images)
