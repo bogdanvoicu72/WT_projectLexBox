@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'LEXBOX.urls'
@@ -133,12 +135,18 @@ MIDDLEWARE_CLASSES = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "home.html"
+#STATIC_ROOT = "home.html"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
