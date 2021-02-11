@@ -58,4 +58,4 @@ def get_records():
 
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=5000, debug=True)
+    app.run(host="https://apilexbox.herokuapp.com", port=5000, debug=True)
