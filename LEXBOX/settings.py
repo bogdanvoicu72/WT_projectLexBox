@@ -159,3 +159,8 @@ EMAIL_HOST_USER = 'lexboxsimulator@gmail.com'
 EMAIL_HOST_PASSWORD = 'lexbox1234'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
+
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
