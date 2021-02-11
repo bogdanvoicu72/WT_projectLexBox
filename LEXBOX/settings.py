@@ -137,13 +137,14 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "home.html/static/"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'LEXBOX/static'),
+    os.path.join(BASE_DIR, '../LEXBOX/static'),
     #bootstrap
-    os.path.join(BASE_DIR, 'LEXBOX/static', 'home.html', 'boot'),
+    os.path.join(BASE_DIR, '../LEXBOX/static', 'home.html', 'boot'),
 
     # Document template goes here
-    os.path.join(BASE_DIR, 'LEXBOX/static', 'home.html', 'DocumentTemplate')
+    os.path.join(BASE_DIR, '../LEXBOX/static', 'home.html', 'DocumentTemplate')
 ]
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
