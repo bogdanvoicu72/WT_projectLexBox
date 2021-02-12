@@ -26,7 +26,7 @@ SECRET_KEY = 'f+hou)$@mhde-0!)*f&e!f)17a*2e-168vu$b566b0%fypfe8s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -137,16 +137,7 @@ USE_TZ = True
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-
-STATIC_URL = '/static/'
-
-#STATIC_ROOT = "home.html"
-
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     #bootstrap
@@ -155,6 +146,14 @@ STATICFILES_DIRS = [
     # Document template goes here
     os.path.join(BASE_DIR, 'static', 'home.html', 'DocumentTemplate')
 ]
+
+
+
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = "home.html/static/"
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media directory in the root directory 
 MEDIA_URL = '/media/'
@@ -167,3 +166,5 @@ EMAIL_HOST_USER = 'lexboxsimulator@gmail.com'
 EMAIL_HOST_PASSWORD = 'lexbox1234'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
