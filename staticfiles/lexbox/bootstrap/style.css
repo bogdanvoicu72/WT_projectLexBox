@@ -1,0 +1,19 @@
+.nav-link{
+  font-size: 2em;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  position:absolute;
+  top: 24vh;
+  left: 15vw;
+  height: 50vh;
+  box-shadow: 10px 10px 8px #888888;
+  width: 70vw;
+}
