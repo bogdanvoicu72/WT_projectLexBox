@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,10 +134,10 @@ STATIC_ROOT = "home.html"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     #bootstrap
-    os.path.join(BASE_DIR, 'static', 'home.html', 'boot'),
+    #os.path.join(BASE_DIR, 'static', 'home.html', 'boot'),
 
     # Document template goes here
-    os.path.join(BASE_DIR, 'static', 'home.html', 'DocumentTemplate')
+    #os.path.join(BASE_DIR, 'static', 'home.html', 'DocumentTemplate')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media directory in the root directory 
@@ -150,3 +151,5 @@ EMAIL_HOST_USER = 'lexboxsimulator@gmail.com'
 EMAIL_HOST_PASSWORD = 'lexbox1234'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
